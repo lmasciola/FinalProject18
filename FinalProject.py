@@ -68,11 +68,20 @@ if play.lower() == "yes" or play.lower() == "y":
     scene_1()
     def scene_2():
         assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
+        possible_assistants = ["john watson", "mrs. hudson"]
+        while assistant_decision not in possible_assistants:
+            assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
         if assistant_decision.lower() == "mrs. hudson":
             print("She probably wouldn't do well at a crime scene.")
             sure = input("Are you sure you want to bring Mrs. Hudson?")
             if sure.lower() == "y" or sure.lower() == "yes":
                 print("You take Mrs. Hudson to the crime scene. She wasn't that helpful. The case was never solved. You have failed.")
+                restart = input("Would you like to go back to the last scene and restart? y or n?")
+                if restart.lower() == "y" or restart.lower() == "yes":
+                    x()
+                    scene_2()
+                elif restart.lower() == "n" or restart.lower() == "no":
+                    print("Goodbye.")
             elif sure.lower() == "no" or sure.lower() == "n":
                 print("You should ask John.")
         elif assistant_decision.lower() == "john watson":
@@ -107,7 +116,12 @@ if play.lower() == "yes" or play.lower() == "y":
             print("MRS. HUDSON: Both of you?")
             x()
             print("YOU: Impossible suicides - four of them. No point in sitting at home when there’s finally something fun going on!")
-        else:
-            assistant_decision
+            x()
+            print("MRS. HUDSON: Look at you, all happy. It's not decent.")
+            x()
+            print("YOU: Who cares about decent? The game, Mrs. Hudson, is on!"
+            x()
+            print("You and John run out of the flat. You hail a cab and climb inside, telling the cabbie to head to Lauriston Gardens.")
+    scene_2()
 else:
     print("Goodbye.")
