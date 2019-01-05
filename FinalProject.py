@@ -126,6 +126,8 @@ if play.lower() == "yes" or play.lower() == "y":
             print("Good choice. You head back inside to speak to John.")
             assistant_john()
     scene_2()
+    def question_2_answer():
+        print("You both step out of the cab and begin to walk towards the building in Lauriston Gardens surrounded by police cars.")
     def question_1_answer():
         print("YOU: I'm a consulting detective. Only one in the world. I invented the job.")
         x()
@@ -133,6 +135,52 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: It means that when the police are out of their depth - which is always - they consult me.")
         x()
+        print("JOHN: Ah...")
+        x()
+        print("YOU: When I first met you, I asked Afghanistan or Iraq. You seemed surprised.")
+        x()
+        print("JOHN: How did you know?")
+        question_2 = input("How would you like to answer? Enter 'tell' OR 'later'.")
+        possible_question_2 = ['tell', 'later']
+        while question_2 not in possible_question_2:
+            question_2 = input("How would you like to answer? Enter 'tell' OR 'later'.")
+        if question_2.lower() == "tell":
+            print("YOU: I didn't know. I saw.")
+            x()
+            print("YOU: Tanned face --")
+            x()
+            print("YOU: -- but no tan above the wrists. You've been abroad but not sunbathing.")
+            x()
+            print("YOU: Your haircut and the way you hold yourself says military - but your conversation as you entered the room says you trained at Barts. So army doctor. Obvious!")
+            x()
+            print("YOU: Your limp is really bad when you walk, but you don’t ask for a chair when you stand, like you’ve forgotten about it - so it’s at least partly psychosomatic. That says the circumstances of the original injury were traumatising - wounded in action then.")
+            x()
+            print("YOU: Wounded in action, a suntan. Afghanistan or Iraq?")
+            x()
+            print("You were being a show off.")
+            x()
+            show_off = input("Do you want to continue analyzing John? yes or no?")
+            if show_off.lower() == "y" or show_off.lower() == "yes":
+                print("YOU: Then there’s your brother --")
+                x()
+                print("You grab John's phone out of his hand and examine it.")
+                x()
+                print("YOU: Your phone. Expensive, email enabled, mp3 player - you’re looking for a flatshare, you wouldn’t waste money on this. It’s a gift then.")
+                x()
+                print("YOU: Scratches - not just one, but many over time. Been in the same pocket as keys and coins. The man in front of me wouldn’t treat his one luxury item like this, so there’s been a previous owner. Next bit’s easy - you know it already.")
+                x()
+                print("JOHN: The engraving.")
+                x()
+                print("YOU: Harry Watson - clearly a family member who’s given you his old phone. Not your father - this is a young man’s gadget. Could be a cousin, but you’re a war hero who can’t find a place to live - unlikely you’ve got an extended family, certainly not one you’re close to. So - brother it is.")
+                x()
+                print("YOU: I could continue, but we are here.")
+                x()
+                print("You give John his phone back.")
+                question_2_answer()
+            elif show_off.lower() == "n" or show_off.lower() == "no":
+                question_2_answer()
+        elif question_2.lower() == "later":
+            question_2_answer()
     def scene_3():
         print("You and John are riding in the cab on your way to Lauriston Gardens, and you notice John keeps glancing at you.")
         x()
@@ -144,7 +192,10 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("JOHN: Who are you? What do you do?")
         x()
-        question_1 = input("How would you like to answer? Enter: consulting detective OR sassy remark.")
+        question_1 = input("How would you like to answer? Enter: 'consulting detective' OR 'sassy remark'.")
+        possible_question_1 = ["consulting detective", "sassy remark"]
+        while question_1.lower() not in possible_question_1:
+            question_1 = input("How would you like to answer? Enter: 'consulting detective' OR 'sassy remark'.")
         if question_1.lower() == "consulting detective":
             question_1_answer()
         elif question_1.lower() == "sassy remark":
@@ -157,6 +208,8 @@ if play.lower() == "yes" or play.lower() == "y":
             print("JOHN: The police doesn't go to priavte detectives.")
             x()
             question_1_answer()
-    #scene_3()
+    scene_3()
+    def scene_4():
+        x()
 else:
     print("Goodbye.")
