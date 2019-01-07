@@ -2,8 +2,16 @@ def x():
     x = input("")
     return x
 
-clues = []
 places = []
+
+class clue:
+
+    def __init__(self, name, place):
+        self.name = name
+        self.place = place
+
+    def introduce(self):
+        print(f"You have discovered a new clue: {self.name}. This clue was discovered at {self.place}")
 
 play = input("INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. (THIS GAME IS BASED OFF OF THE EPISODE OF BBC SHERLOCK A STUDY IN PINK, AND USES DIALOGUE FROM THE SHOW).After every line of text, press enter to continue. Would you like to play?")
 if play.lower() == "yes" or play.lower() == "y":
@@ -37,8 +45,10 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("LESTRADE: This one did. Will you come?")
         x()
-        clues.append("Fourth victim left note")
-        print("You have just discovered a clue: the fourth suicide left a note.")
+
+        clue_1 = clue("Fourth Suicide Note", "Lauriston Gardens")
+        clue_1.introduce()
+
         x()
         print("You think for a moment. There were a few people who worked at the police department that disliked you.")
         x()
@@ -126,7 +136,9 @@ if play.lower() == "yes" or play.lower() == "y":
             print("Good choice. You head back inside to speak to John.")
             assistant_john()
     scene_2()
-    def question_2_answer():
+    def question_3_answer():
+        print("YOU: We are here.")
+        x()
         print("You both step out of the cab and begin to walk towards the building in Lauriston Gardens surrounded by police cars.")
     def question_1_answer():
         print("YOU: I'm a consulting detective. Only one in the world. I invented the job.")
@@ -160,6 +172,9 @@ if play.lower() == "yes" or play.lower() == "y":
             print("You were being a show off.")
             x()
             show_off = input("Do you want to continue analyzing John? yes or no?")
+            possible_show_off = ["yes", "y", "no", "n"]
+            while show_off not in possible_show_off:
+                show_off = input("Do you want to continue analyzing John? yes or no?")
             if show_off.lower() == "y" or show_off.lower() == "yes":
                 print("YOU: Then there’s your brother --")
                 x()
@@ -171,17 +186,76 @@ if play.lower() == "yes" or play.lower() == "y":
                 x()
                 print("JOHN: The engraving.")
                 x()
+                print("The engraving reads 'To Harry From Clara xxx'")
+                x()
                 print("YOU: Harry Watson - clearly a family member who’s given you his old phone. Not your father - this is a young man’s gadget. Could be a cousin, but you’re a war hero who can’t find a place to live - unlikely you’ve got an extended family, certainly not one you’re close to. So - brother it is.")
                 x()
-                print("YOU: I could continue, but we are here.")
+                print("YOU: Now Clara, who’s Clara - three kisses says it’s a romantic attachment, the expense of the phone says wife not girlfriend.")
                 x()
-                print("You give John his phone back.")
-                question_2_answer()
+                print("YOU: She must have given it to him recently, this model’s only six months old. It’s a marriage in trouble then - six months on he’s just given it away. If she’d left him, he’d probably have kept the phone - people do, sentiment - but no, he wanted rid of it: he left her. He gave the phone to you - that says he wants you to stay in touch.")
+                x()
+                question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'yes' or 'no'.")
+                possible_question_3 = ["yes", "y", "no", "n"]
+                while question_3 not in possible_question_3:
+                    question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'yes' or 'no'.")
+                if question_3 == "y" or question_3 == "yes":
+                    print("YOU: You’re looking for cheap accommodation, but you’re not going to your brother for help - that says you’ve got problems with him. Maybe you liked his wife, maybe you don’t like his drinking --")
+                    x()
+                    print("JOHN: How can you possibly know about the drinking?")
+                    x()
+                    print("YOU: Shot in the dark -- good one though. The power connection.")
+                    x()
+                    print("YOU: Tiny little scuff marks all round it - he plugs it in every night to recharge, but his hands are shaking. Never see those marks on a sober man’s phone, never see a drunk’s without them.")
+                    x()
+                    print("JOHN: That was...amazing.")
+                    x()
+                    print("YOU: Do you think so?")
+                    x()
+                    print("JOHN: Well, of course it was. It was extraordinary. Quite extraordinary.")
+                    x()
+                    print("You were quite proud of yourself for impressing John.")
+                    x()
+                    print("YOU: That's not what people usually say.")
+                    x()
+                    print("JOHN: What do people usually say?")
+                    x()
+                    print("YOU: Piss off.")
+                    x()
+                    print("Curiosity was getting the best of you. You were wondering if you had gotten everything right about John.")
+                    question_4 = input("Do you want to ask John if you got everything correct? Enter: 'yes' or 'no'.")
+                    possible_question_4 = ["yes", "no", "y", "n"]
+                    while question_4 not in possible_question_3:
+                        question_4 = input("Do you want to ask John if you got everything correct? Enter: 'yes' or 'no'.")
+                    if question_4 == "y" or question_3 == "yes":
+                        print("YOU: Did I get anything wrong?")
+                        x()
+                        print("JOHN: Harry and me don’t get on, never have. Clara and Harry split up three months ago, they’re getting a divorce. Harry’s a drinker --")
+                        x()
+                        print("YOU: Spot on, then! Didn’t expect to be right about everything.")
+                        x()
+                        print("JOHN: --Harry is short for Harriet")
+                        x()
+                        print("YOU: Harry is your sister.")
+                        x()
+                        print("JOHN: Look, exactly what am I supposed to be doing here?")
+                        x()
+                        print("YOU: Your sister.")
+                        x()
+                        print("JOHN: No, seriously, why am I here?")
+                        x()
+                        print("YOU: There's always something!")
+                        x()
+                        question_3_answer()
+                    elif question_4 == "n" or question_4 == "no":
+                        question_3_answer()
+                elif question_3 == "no" and question_3 == "n":
+                    question_3_answer()
             elif show_off.lower() == "n" or show_off.lower() == "no":
-                question_2_answer()
+                question_3_answer()
         elif question_2.lower() == "later":
-            question_2_answer()
+            question_3_answer()
     def scene_3():
+        x()
         print("You and John are riding in the cab on your way to Lauriston Gardens, and you notice John keeps glancing at you.")
         x()
         print("YOU: Okay, you've got questions.")
