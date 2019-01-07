@@ -224,9 +224,9 @@ if play.lower() == "yes" or play.lower() == "y":
                     print("Curiosity was getting the best of you. You were wondering if you had gotten everything right about John.")
                     question_4 = input("Do you want to ask John if you got everything correct? Enter: 'yes' or 'no'.")
                     possible_question_4 = ["yes", "no", "y", "n"]
-                    while question_4 not in possible_question_3:
+                    while question_4 not in possible_question_4:
                         question_4 = input("Do you want to ask John if you got everything correct? Enter: 'yes' or 'no'.")
-                    if question_4 == "y" or question_3 == "yes":
+                    if question_4 == "y" or question_4 == "yes":
                         print("YOU: Did I get anything wrong?")
                         x()
                         print("JOHN: Harry and me don’t get on, never have. Clara and Harry split up three months ago, they’re getting a divorce. Harry’s a drinker --")
@@ -246,7 +246,7 @@ if play.lower() == "yes" or play.lower() == "y":
                         print("YOU: There's always something!")
                         x()
                         question_3_answer()
-                    elif question_4 == "n" or question_4 == "no":
+                    else:
                         question_3_answer()
                 elif question_3 == "no" and question_3 == "n":
                     question_3_answer()
