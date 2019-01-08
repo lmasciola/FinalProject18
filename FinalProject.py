@@ -1,9 +1,13 @@
+clues = []
 def x():
     x = input("")
-    return x
+    if x == "":
+        return x
+    elif x.lower() == "clues":
+        print(clues)
+        x = input("")
 
 places = []
-
 class clue:
 
     def __init__(self, name, place):
@@ -48,6 +52,8 @@ if play.lower() == "yes" or play.lower() == "y":
 
         clue_1 = clue("Fourth Suicide Note", "Lauriston Gardens")
         clue_1.introduce()
+        clues.append("The Fourth Suicide left a note")
+        print(clues)
 
         x()
         print("You think for a moment. There were a few people who worked at the police department that disliked you.")
@@ -116,7 +122,7 @@ if play.lower() == "yes" or play.lower() == "y":
     def scene_2():
         assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
         possible_assistants = ["john watson", "mrs. hudson"]
-        while assistant_decision not in possible_assistants:
+        while assistant_decision.lower() not in possible_assistants:
             assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
         if assistant_decision.lower() == "mrs. hudson":
             print("She probably wouldn't do well at a crime scene.")
@@ -154,7 +160,7 @@ if play.lower() == "yes" or play.lower() == "y":
         print("JOHN: How did you know?")
         question_2 = input("How would you like to answer? Enter 'tell' OR 'later'.")
         possible_question_2 = ['tell', 'later']
-        while question_2 not in possible_question_2:
+        while question_2.lower() not in possible_question_2:
             question_2 = input("How would you like to answer? Enter 'tell' OR 'later'.")
         if question_2.lower() == "tell":
             print("YOU: I didn't know. I saw.")
@@ -173,7 +179,7 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             show_off = input("Do you want to continue analyzing John? yes or no?")
             possible_show_off = ["yes", "y", "no", "n"]
-            while show_off not in possible_show_off:
+            while show_off.lower() not in possible_show_off:
                 show_off = input("Do you want to continue analyzing John? yes or no?")
             if show_off.lower() == "y" or show_off.lower() == "yes":
                 print("YOU: Then there’s your brother --")
@@ -196,9 +202,9 @@ if play.lower() == "yes" or play.lower() == "y":
                 x()
                 question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'yes' or 'no'.")
                 possible_question_3 = ["yes", "y", "no", "n"]
-                while question_3 not in possible_question_3:
+                while question_3.lower() not in possible_question_3:
                     question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'yes' or 'no'.")
-                if question_3 == "y" or question_3 == "yes":
+                if question_3.lower() == "y" or question_3.lower() == "yes":
                     print("YOU: You’re looking for cheap accommodation, but you’re not going to your brother for help - that says you’ve got problems with him. Maybe you liked his wife, maybe you don’t like his drinking --")
                     x()
                     print("JOHN: How can you possibly know about the drinking?")
@@ -224,9 +230,9 @@ if play.lower() == "yes" or play.lower() == "y":
                     print("Curiosity was getting the best of you. You were wondering if you had gotten everything right about John.")
                     question_4 = input("Do you want to ask John if you got everything correct? Enter: 'yes' or 'no'.")
                     possible_question_4 = ["yes", "no", "y", "n"]
-                    while question_4 not in possible_question_4:
+                    while question_4.lower() not in possible_question_4:
                         question_4 = input("Do you want to ask John if you got everything correct? Enter: 'yes' or 'no'.")
-                    if question_4 == "y" or question_4 == "yes":
+                    if question_4.lower() == "y" or question_4.lower() == "yes":
                         print("YOU: Did I get anything wrong?")
                         x()
                         print("JOHN: Harry and me don’t get on, never have. Clara and Harry split up three months ago, they’re getting a divorce. Harry’s a drinker --")
@@ -248,7 +254,7 @@ if play.lower() == "yes" or play.lower() == "y":
                         question_3_answer()
                     else:
                         question_3_answer()
-                elif question_3 == "no" and question_3 == "n":
+                elif question_3.lower() == "no" and question_3.lower() == "n":
                     question_3_answer()
             elif show_off.lower() == "n" or show_off.lower() == "no":
                 question_3_answer()
@@ -283,7 +289,72 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             question_1_answer()
     scene_3()
-    def scene_4():
+    def examine_hand():
+        print("You examine the woman's left hand. The woman was wearing her wedding ring.")
+        clue_2 = clue("Jennifer Wilson is married", "Lauriston Gardens")
+        clue_2.introduce()
+        clues.append("Jennifer Wilson is married.")
+        print("With her left hand, Wilson had scratched word into the floorboards. The word is 'Rache.'")
         x()
+        print("'Rache' means 'revenge' in German.")
+        x()
+        print("You think for a moment...")
+        x()
+        print("Rachel.")
+        x()
+        clue_3 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel.'", "Lauriston Gardens")
+        clue_3.introduce()
+        clues.append("Jennifer Wilson scratched 'Rachel' into the floorboards")
+
+    def scene_4():
+        print("You and John exited the cab and walked up to the police tape surrounding the building.")
+        x()
+        print("SALLY: Hello, freak.")
+        x()
+        print("Sally works at the police department.")
+        x()
+        print("YOU: I'm here to see Detective Inspector Lestrade.")
+        x()
+        print("SALLY: Why?")
+        x()
+        print("YOU: I think he wants me to take a look.")
+        x()
+        print("SALLY: Well, you know what I think, don't you?")
+        x()
+        print("YOU: Always, Sally.")
+        x()
+        print("SALLY: Freak's here. Bringing him in.")
+        x()
+        print("Sally brings you and John into the building and upstairs to the second floor. You walk into the room where the crime was committed. Lestrade is there.")
+        x()
+        print("LESTRADE: Jennifer Wilson, according to her credit cards - we’re running them now for contact details. Hasn’t been here long - some kids found her.")
+        x()
+        print("A woman in a a bright pink coat, and pink shoes, lies dead, sprawled face down. The room remained silent, but you couldn't think.")
+        x()
+        print("YOU: Shut up!")
+        x()
+        print("LESTRADE: Didn't say anything.")
+        x()
+        print("YOU: You were thinking. It's annoying.")
+        x()
+        examine_1 = input("""You move closer to the body to examine it. Where do you want to examine first?
+        -hand
+        -coat
+        -umbrella
+        -jewelry""")
+        possible_examine_1 = ["hand", "coat", "umbrella", "jewelry"]
+        while examine_1.lower() not in possible_examine_1:
+            examine_1 = input("""You move closer to the body to examine it. Where do you want to examine first?
+        -hand
+        -coat
+        -umbrella
+        -jewelry""")
+        if examine_1.lower() == "hand":
+            examine_hand()
+            del possible_examine_1[0]
+            print(possible_examine_1)
+
+        #page 41
+    scene_4()
 else:
     print("Goodbye.")
