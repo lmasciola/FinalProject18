@@ -337,7 +337,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: You were thinking. It's annoying.")
         x()
-        examine_1 = input("""You move closer to the body to examine it. Where do you want to examine first?
+        examine_1 = input("""You move closer to the body to examine it. Where do you want to examine?
         -hand
         -coat
         -umbrella
@@ -352,8 +352,11 @@ if play.lower() == "yes" or play.lower() == "y":
         if examine_1.lower() == "hand":
             examine_hand()
             del possible_examine_1[0]
-            print(possible_examine_1)
-
+            examine_1 = input("""You move closer to the body to examine it. Where do you want to examine?
+        -hand
+        -coat
+        -umbrella
+        -jewelry""")
         #page 41
     scene_4()
 else:
