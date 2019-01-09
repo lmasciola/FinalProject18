@@ -1,5 +1,7 @@
 clues = []
 #this is the list of clues the player will use to help them solve the mystery
+quotes = []
+#this is the list of funny quotes the player may discover during the episode
 
 def x():
     """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
@@ -9,6 +11,14 @@ def x():
     elif x.lower() == "clues":
         print(clues)
         x = input("")
+class quote:
+    """Class defining famous/funny quotes from the episode"""
+    def __init__(self, quote, person):
+        """Constructor for quote class"""
+        self.quote = quote
+        self.person = person
+    def names(self):
+        print(f"You have discovered the following quote: {self.quote} ~{self.person}")
 
 class clue:
     """Class defining a clue"""
@@ -116,6 +126,7 @@ if play.lower() == "yes" or play.lower() == "y":
         print("JOHN: Oh, God, yes!")
         x()
         print("YOU: Get your coat.")
+        x()
         print("You both rush for the door, but Mrs. Hudson stops you on your way out.")
         x()
         print("JOHN: Sorry, Mrs. Hudson, I’ll skip the cuppa -- off out.")
@@ -166,6 +177,10 @@ if play.lower() == "yes" or play.lower() == "y":
         print("You both step out of the cab and begin to walk towards the building in Lauriston Gardens surrounded by police cars.")
     def question_1_answer():
         print("YOU: I'm a consulting detective. Only one in the world. I invented the job.")
+        x()
+        quote_1 = quote("I'm a consulting detective. Only one in the world. I invented the job.", "Sherlock Holmes")
+        quote_1.introduce()
+        quotes.append("I'm a consulting detective. Only one in the world. I invented the job. ~Sherlock Holmes")
         x()
         print("JOHN: What does that mean?")
         x()
@@ -338,6 +353,9 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: You were thinking. It's annoying.")
         x()
+        quote_2 = quote("You were thinking. It's annoying.", "Sherlock Holmes")
+        quote_2.introduce()
+        quotes.append("You were thinking. It's annoying. ~Sherlock Holmes")
         examining = True
         options_examine = ["hand", "coat", "jewelry", "leg"]
         while examining:
@@ -353,12 +371,12 @@ if play.lower() == "yes" or play.lower() == "y":
                 x()
                 print("Rachel.")
                 x()
-                clue_2 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel.'", "Lauriston Gardens")
+                clue_2 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel'", "Lauriston Gardens")
                 clue_2.introduce()
                 clues.append("Jennifer Wilson scratched 'Rachel' into the floorboards")
                 x()
                 print("You look at Wilson's fingernails. All were painted pink to match her coat and heels. The only nails chip were those she used to carve into the wooden floor.")
-                clue_5 = clue("Jennifer Wilson does not work with her hands.", "Lauriston Gardens")
+                clue_5 = clue("Jennifer Wilson does not work with her hands", "Lauriston Gardens")
                 clue_5.introduce()
             elif examine.lower() == "coat":
                 print("You run your gloved hand over the woman's coat. The coat was wet.")
@@ -366,7 +384,7 @@ if play.lower() == "yes" or play.lower() == "y":
                 print("You pull a fold-away umbrella out of her coat pocket. It was dry.")
                 x()
                 print("You run your hand under the collar of the woman's coat. The collar is wet.")
-                clue_3 = clue("Jennifer Wilson was outside in a windy rain storm.", "Lauriston Gardens")
+                clue_3 = clue("Jennifer Wilson was outside in a windy rain storm", "Lauriston Gardens")
                 clue_3.introduce()
                 clues.append("Jennifer Wilson was outside in a rain storm prior to her death.")
             elif examine.lower() == "jewelry":
@@ -376,18 +394,17 @@ if play.lower() == "yes" or play.lower() == "y":
                 clues.append("Jennifer Wilson was unhappily married.")
                 x()
                 print("You take off Wilson's wedding ring. While the outside is dirty, the inside is clean like her other jewelry, meaning the ring is regularly removed. You believe that Wilson was probably an adulter whose lovers did not know she was married.")
-                clue_6 = clue ("Jennifer Wilson was an adulterer.", "Lauriston Gardens")
+                clue_6 = clue ("Jennifer Wilson was an adulterer", "Lauriston Gardens")
                 clue_6.introduce()
                 clues.append("Jennifer Wilson was an adulterer.")
             elif examine.lower() == "leg":
                 print("You look at the back of Wilson's right leg. It is covered in small splashes, probably from a suitcase she was carrying.")
-                clue_7 = clue("Wilson had a suitcase with her.", "Lauriston Gardens")
+                clue_7 = clue("Wilson had a suitcase with her", "Lauriston Gardens")
                 clue_7.introduce()
                 clues.append("Wilson had a suitcase with her.")
             options_examine.remove(examine)
             if len(options_examine) == 0:
                 examining = False
-        #page 42
     scene_4()
     def scene_5():
         print("LESTRADE: Got anything?")
@@ -458,5 +475,58 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("JOHN: She's one of the suicides. The fourth.")
         x()
+        print("LESTRADE: Sherlock, I need anything you've got.")
+        x()
+        print("You have come up with many conclusions about Jennifer Wilson:")
+        x()
+        print("YOU: Victim is in her late forties. Professional person going by her clothes - I’d guess something in the media, going by the frankly alarming shade of pink. She’s travelled from Cardiff today, intending to stay for one night - that’s obvious from the size of her suitcase -- ")
+        x()
+        print("LESTRADE: Suitcase?")
+        x()
+        print("YOU: Suitcase, yes. She’s been married for at least ten years, but not happily. She’s had a string of lovers, but none of them have known she was married --")
+        x()
+        print("YOU: Suitcase, yes. She’s been married for at least ten years, but not happily. She’s had a string of lovers, but none of them have known she was married --")
+        x()
+        print("LESTRADE: For God's sake. If you're just making this up...")
+        x()
+        print("YOU: The wedding ring, ten years old at least. The rest of her jewellery has been regularly cleaned, but not her wedding rings - state of her marriage, right there. The inside of the rings are shinier than the outside - that means they’re regularly removed; the only polishing they get is when she works them off her finger. It’s not for work - look at her nails, she doesn’t work with her hands - so what, or rather who, does she remove her rings for? Clearly not one lover - she’d never sustain the fiction of being single over time - so more likely a string of them. Simple!")
+        x()
+        print("JOHN: Brilliant! Sorry...")
+        x()
+        print("LESTRADE: Cardiff?")
+        x()
+        print("YOU: Obvious, isn't it?")
+        x()
+        print("JOHN: Not obvious to me.")
+        x()
+        print("YOU: Dear God, what's it like in your funny little brains? It must be so boring. Her coat!")
+        x()
+        quote_3 = quote("Dear God, what's it like in your funny little brains? It must be so boring.", "Sherlock Holmes")
+        quote_3.introduce()
+        quotes.append("Dear God, what's it like in your funny little brains? It must be so boring. ~Sherlock Holmes")
+        x()
+        print("YOU: It’s slightly damp - she’s been in heavy rain within the last few hours. No rain anywhere in London in that time. Under her coat collar is damp too. She turned it up against the wind! She’s got an umbrella in her left pocket but it’s unused and dry. Not just wind, strong wind - too strong to use her umbrella.We know from her suitcase that she’s staying over night so she must have a come a decent distance. But she can’t have travelled more than two or three hours, cos her coat hasn’t dried. So where has there been heavy rain and strong wind within the radius of that travel time? Cardiff.")
+        x()
+        print("JOHN: Fantastic!")
+        x()
+        print("You and Lestrade look at John.")
+        x()
+        print("SHERLOCK: Do you know you do that out loud?")
+        x()
+        print("JOHN: ... sorry, I'll shut up.")
+        x()
+        print("YOU: No, it’s fine.")
+        x()
+        print("LESTRADE: Why do you keep saying suitcase?")
+        x()
+        print("YOU: Yeah, where is it? She must have a phone or an organiser - we can find out who Rachel is.")
+        x()
+        print("LESTRADE: She was writing Rachel?")
+        x()
+        print("YOU: No, she was leaving an angry note in German - of course she was writing Rachel. No other word it can be. Question is, why did she wait till she was dying to write it...")
+        x()
+        print("LESTRADE: How do you know she had a case?")
+        x()
+        print("YOU: Back of her right leg. Tiny splashes on the heel and calf, not present on the left. She was dragging a wheeled suitcase behind her, with her right hand - you don’t get that splash pattern any other way. Smallish case, going by the spread. Case that size, woman this clothes-conscious - could only be an overnight bag. So we know she was staying one night. Now where is it - what have you done with it?")
 else:
     print("Goodbye.")
