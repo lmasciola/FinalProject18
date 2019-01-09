@@ -1,5 +1,8 @@
 clues = []
+#this is the list of clues the player will use to help them solve the mystery
+
 def x():
+    """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
     x = input("")
     if x == "":
         return x
@@ -7,25 +10,31 @@ def x():
         print(clues)
         x = input("")
 
-places = []
 class clue:
-
+    """Class defining a clue"""
     def __init__(self, name, place):
+        """Constructor for clue class"""
         self.name = name
         self.place = place
 
     def introduce(self):
+        #this method introduces/describes the clue to the player
         print(f"You have discovered a new clue: {self.name}. This clue was discovered at {self.place}")
 
-play = input("INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. (THIS GAME IS BASED OFF OF THE EPISODE OF BBC SHERLOCK A STUDY IN PINK, AND USES DIALOGUE FROM THE SHOW).After every line of text, press enter to continue. Would you like to play?")
+play = input("INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. (THIS GAME IS BASED OFF OF THE EPISODE OF BBC SHERLOCK A STUDY IN PINK, AND USES DIALOGUE FROM THE SHOW).After every line of text, press enter to continue or type 'clue' to view your current list of clues. Would you like to play?")
+#this take the user input and asks the player if they want to play the game
 if play.lower() == "yes" or play.lower() == "y":
+#if the player inputs "yes" or "y" the game will start
     def scene_1():
+        """"Scene one of the game begins when this function is calles"""
+        #the story begins. lines of text are printed one by one for the player to read. the player presses enter after every line to get to the next line of text. in between lines of code, the player can type 'clues' to view their list of clues'
         print("Introduction:")
         print("Your name is Sherlock Holmes, an infamous detective. You live in London in 221B Baker Street with Dr. John Watson. You are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper.")
         x()
         print("MRS. HUDSON: What about these suicides, then, Sherlock? Thought that would be right up your street. Three of them, exactly the same. That's a bit funny, isn't it?")
         x()
         print("You suddenly get a feeling.")
+        x()
         print("YOU: Four. There's been a fourth. And there's something different this time.")
         x()
         print("MRS. HUDSON: A fourth? How do you know?")
@@ -35,9 +44,6 @@ if play.lower() == "yes" or play.lower() == "y":
         print("YOU: Where?")
         x()
         print("LESTRADE: Brixton. Lauriston Gardens.")
-        x()
-        places.append("Lauriston Gardens")
-        print("You have just discovered a new place, Lauriston Gardens.")
         x()
         print("Lestrade wouldn't be here unless something was different this time.")
         x()
@@ -49,12 +55,13 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("LESTRADE: This one did. Will you come?")
         x()
-
+        #the first clue is created based on the clue class. the clue description is listed first in the parentheses followed by the location the clue was found
         clue_1 = clue("Fourth Suicide Note", "Lauriston Gardens")
+        #this is a method from the clue class that introduces/describes the first clue found to the player
         clue_1.introduce()
+        #this clue is added to the clues list. now when the player wants to look at their list of clues, this clue will be in the list
         clues.append("The Fourth Suicide left a note")
-        print(clues)
-
+        #the story is continued by printing lines of text followed by the previously definied command x()
         x()
         print("You think for a moment. There were a few people who worked at the police department that disliked you.")
         x()
@@ -81,8 +88,11 @@ if play.lower() == "yes" or play.lower() == "y":
         print("MRS. HUDSON: I'm your landlady, dear, not your housekeeper.")
         x()
         print("YOU: Something cold is fine. John, make yourself at home -- have a cuppa! Don't wait up!")
+    #this calls the previously defined scene_1() function
     scene_1()
     def assistant_john():
+        """This function continues the story when the player picks John as their assistant to take to the crime scene."""
+        #the story is continued by printing lines of text followed by the previously defined function x()
         print("You walk back inside the flat.")
         x()
         print("YOU: You're a doctor.")
@@ -120,22 +130,30 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("You and John run out of the flat. You hail a cab and climb inside, telling the cabbie to head to Lauriston Gardens.")
     def scene_2():
+        """Scene 2 will begin when this function is called"""
         assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
+        #this takes the user input of who they want to take to the crime scene with them
         possible_assistants = ["john watson", "mrs. hudson"]
+        #this is the list of acceptable inputs when the player is prompted with the previously defined assistant_decision
         while assistant_decision.lower() not in possible_assistants:
+            #this is a while loop that continues to ask for the player's input until their input for assistant_decision matches one of the options in possible_assistants
             assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
         if assistant_decision.lower() == "mrs. hudson":
+            #the following will happen if the user's input to assistant_decision is 'mrs. hudson'
             print("She probably wouldn't do well at a crime scene.")
-            sure = input("Are you sure you want to bring Mrs. Hudson?")
-            if sure.lower() == "y" or sure.lower() == "yes":
+            take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'yes' or 'no.'")
+            #this asks for the user's input on if they are sure they want to take Mrs. Hudson to the crime scene
+            if take_hudson.lower() == "y" or take_hudson.lower() == "yes":
+                #if the user's input for take_hudson is 'yes' or 'y', a string will be printed telling the player they have failed
                 print("You take Mrs. Hudson to the crime scene. She wasn't that helpful. The case was never solved. You have failed.")
                 restart = input("Would you like to go back to the last scene and restart? y or n?")
+                #this takes the user input on whether or not they want to restart the game after they have failed by bringing Mrs. Hudson to the crime scene
                 if restart.lower() == "y" or restart.lower() == "yes":
-                    x()
+                    #if the user's input to restart is 'yes' or 'y', scene_2() is called and the game will continue from the beginning of the function scene_2()
                     scene_2()
                 elif restart.lower() == "n" or restart.lower() == "no":
                     print("Goodbye.")
-            elif sure.lower() == "no" or sure.lower() == "n":
+            elif take_hudson.lower() == "no" or take_hudson.lower() == "n":
                 print("You should ask John.")
                 assistant_john()
         elif assistant_decision.lower() == "john watson":
@@ -305,7 +323,8 @@ if play.lower() == "yes" or play.lower() == "y":
         clue_3 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel.'", "Lauriston Gardens")
         clue_3.introduce()
         clues.append("Jennifer Wilson scratched 'Rachel' into the floorboards")
-
+    def examine_coat():
+        print("")
     def scene_4():
         print("You and John exited the cab and walked up to the police tape surrounding the building.")
         x()
@@ -353,10 +372,11 @@ if play.lower() == "yes" or play.lower() == "y":
             examine_hand()
             del possible_examine_1[0]
             examine_1 = input("""You move closer to the body to examine it. Where do you want to examine?
-        -hand
         -coat
         -umbrella
         -jewelry""")
+        elif examine_1.lower() == "coat":
+            x()
         #page 41
     scene_4()
 else:
