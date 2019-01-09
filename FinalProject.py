@@ -356,27 +356,18 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: You were thinking. It's annoying.")
         x()
-        examine_1 = input("""You move closer to the body to examine it. Where do you want to examine?
-        -hand
-        -coat
-        -umbrella
-        -jewelry""")
-        possible_examine_1 = ["hand", "coat", "umbrella", "jewelry"]
-        while examine_1.lower() not in possible_examine_1:
-            examine_1 = input("""You move closer to the body to examine it. Where do you want to examine first?
-        -hand
-        -coat
-        -umbrella
-        -jewelry""")
-        if examine_1.lower() == "hand":
-            examine_hand()
-            del possible_examine_1[0]
-            examine_1 = input("""You move closer to the body to examine it. Where do you want to examine?
-        -coat
-        -umbrella
-        -jewelry""")
-        elif examine_1.lower() == "coat":
-            x()
+        examining = True
+        options_examine = ["hand", "coat", "umbrella", "jewelry"]
+        while examining:
+
+            examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)}")
+            while examine.lower() not in options_examine:
+                examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)}")
+            if examine.lower() == "hand":
+                examine_hand()
+            options_examine.remove(examine)
+            if len(options_examine) == 0:
+                examining = False
         #page 41
     scene_4()
 else:
