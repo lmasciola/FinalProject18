@@ -2,7 +2,8 @@ clues = []
 #this is the list of clues the player will use to help them solve the mystery
 quotes = []
 #this is the list of funny quotes the player may discover during the episode
-
+possible_murderers = ["never mind", "suicide"]
+#this is the list of people you meet during the game
 def x():
     """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
     x = input("")
@@ -14,6 +15,37 @@ def x():
     elif x.lower() == "quotes":
         print(quotes)
         x = input("")
+
+def thank_you():
+    print("Thank you for playing!")
+
+def murderer():
+    """This function will ask the player if they think they know who the murderer is"""
+    murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'yes' or 'no'.")
+    murderer_options = ["yes", "y", "no", "n"]
+    while murderer.lower() not in murderer_options:
+        murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'yes' or 'no'.")
+    if murderer.lower() == "yes" or murderer.lower() == "y":
+        print(f"These are the possible murderers so far: {', '.join(possible_murderers)}")
+        murderer_1 = input("Who do you think killed the victim?")
+        while murderer_1 not in possible_murderers:
+            murderer_1 = input("Who do you think killed the victim?")
+        if murderer_1.lower() == "never mind":
+            print("Okay. Maybe you will know later.")
+        elif murderer_1.lower() == "suicide":
+            print("You had already said that it couldn't have been a suicide, but you have changed your mind.")
+            x()
+            print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
+            x()
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            while restart.lower() not in ["yes", "y", "no", "n"]:
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            if restart.lower() in ["yes", "y"]:
+                scene_4()
+            elif restart.lower() in ["no", "n"]:
+                print("Goodbye.")
+    elif murderer.lower() in ["no", "n"]:
+        print("That's okay. Maybe you will know later.")
 
 class quote:
     """Class defining famous/funny quotes from the episode"""
@@ -158,6 +190,8 @@ if play.lower() == "yes" or play.lower() == "y":
             print("She probably wouldn't do well at a crime scene.")
             take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'yes' or 'no.'")
             #this asks for the user's input on if they are sure they want to take Mrs. Hudson to the crime scene
+            while take_hudson.lower() not in ["yes", "y", "no", "n"]:
+                take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'yes' or 'no.'")
             if take_hudson.lower() == "y" or take_hudson.lower() == "yes":
                 #if the user's input for take_hudson is 'yes' or 'y', a string will be printed telling the player they have failed
                 print("You take Mrs. Hudson to the crime scene. She wasn't that helpful. The case was never solved. You have failed.")
@@ -167,7 +201,7 @@ if play.lower() == "yes" or play.lower() == "y":
                     #if the user's input to restart is 'yes' or 'y', scene_2() is called and the game will continue from the beginning of the function scene_2()
                     scene_2()
                 elif restart.lower() == "n" or restart.lower() == "no":
-                    print("Goodbye.")
+                    print("Goodbye")
             elif take_hudson.lower() == "no" or take_hudson.lower() == "n":
                 print("You should ask John.")
                 assistant_john()
@@ -289,7 +323,7 @@ if play.lower() == "yes" or play.lower() == "y":
                         print("YOU: There's always something!")
                         x()
                         question_3_answer()
-                    elif question_4.lower() == "n" or question_4.lower() == "no": #this doesn't work for some reason
+                    elif question_4.lower() == "no": #problem
                         question_3_answer()
                 elif question_3.lower() == "no" and question_3.lower() == "n":
                     question_3_answer()
