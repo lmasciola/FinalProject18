@@ -1,9 +1,14 @@
+import sys
+
 clues = []
 #this is the list of clues the player will use to help them solve the mystery
+
 quotes = []
 #this is the list of funny quotes the player may discover during the episode
+
 possible_murderers = ["never mind", "suicide"]
 #this is the list of people you meet during the game
+
 def x():
     """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
     x = input("")
@@ -15,9 +20,6 @@ def x():
     elif x.lower() == "quotes":
         print(quotes)
         x = input("")
-
-def thank_you():
-    print("Thank you for playing!")
 
 def murderer():
     """This function will ask the player if they think they know who the murderer is"""
@@ -44,6 +46,7 @@ def murderer():
                 scene_4()
             elif restart.lower() in ["no", "n"]:
                 print("Goodbye.")
+                sys.exit()
     elif murderer.lower() in ["no", "n"]:
         print("That's okay. Maybe you will know later.")
 
@@ -67,10 +70,11 @@ class clue:
         #this method introduces/describes the clue to the player
         print(f"You have discovered a new clue: {self.name}. This clue was discovered at {self.place}")
 
-play = input("INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. (THIS GAME IS BASED OFF OF THE EPISODE OF BBC SHERLOCK A STUDY IN PINK, AND USES DIALOGUE FROM THE SHOW).After every line of text, press enter to continue or type 'clue' to view your current list of clues. Would you like to play?")
+play = input("Would you like to play?")
 #this take the user input and asks the player if they want to play the game
 if play.lower() == "yes" or play.lower() == "y":
 #if the player inputs "yes" or "y" the game will start
+    print("INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. (THIS GAME IS BASED OFF OF THE EPISODE OF BBC SHERLOCK A STUDY IN PINK, AND USES DIALOGUE FROM THE SHOW).After every line of text, press enter to continue or type 'clue' to view your current list of clues.")
     def scene_1():
         """"Scene one of the game begins when this function is calles"""
         #the story begins. lines of text are printed one by one for the player to read. the player presses enter after every line to get to the next line of text. in between lines of code, the player can type 'clues' to view their list of clues'
@@ -134,8 +138,10 @@ if play.lower() == "yes" or play.lower() == "y":
         print("MRS. HUDSON: I'm your landlady, dear, not your housekeeper.")
         x()
         print("YOU: Something cold is fine. John, make yourself at home -- have a cuppa! Don't wait up!")
+
     #this calls the previously defined scene_1() function
     scene_1()
+
     def assistant_john():
         """This function continues the story when the player picks John as their assistant to take to the crime scene."""
         #the story is continued by printing lines of text followed by the previously defined function x()
@@ -176,6 +182,7 @@ if play.lower() == "yes" or play.lower() == "y":
         print("YOU: Who cares about decent? The game, Mrs. Hudson, is on!")
         x()
         print("You and John run out of the flat. You hail a cab and climb inside, telling the cabbie to head to Lauriston Gardens.")
+
     def scene_2():
         """Scene 2 will begin when this function is called"""
         assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
@@ -195,24 +202,29 @@ if play.lower() == "yes" or play.lower() == "y":
             if take_hudson.lower() == "y" or take_hudson.lower() == "yes":
                 #if the user's input for take_hudson is 'yes' or 'y', a string will be printed telling the player they have failed
                 print("You take Mrs. Hudson to the crime scene. She wasn't that helpful. The case was never solved. You have failed.")
-                restart = input("Would you like to go back to the last scene and restart? y or n?")
+                play = input("Would you like to play?")
+                #restart = input("Would you like to go back to the last scene and restart? y or n?")
                 #this takes the user input on whether or not they want to restart the game after they have failed by bringing Mrs. Hudson to the crime scene
-                if restart.lower() == "y" or restart.lower() == "yes":
+                #if restart.lower() == "y" or restart.lower() == "yes":
                     #if the user's input to restart is 'yes' or 'y', scene_2() is called and the game will continue from the beginning of the function scene_2()
-                    scene_2()
-                elif restart.lower() == "n" or restart.lower() == "no":
-                    print("Goodbye")
+                #    scene_2()
+                #elif restart.lower() == "n" or restart.lower() == "no":
+                #    print("Goodbye.")
+                #    sys.exit()
             elif take_hudson.lower() == "no" or take_hudson.lower() == "n":
                 print("You should ask John.")
                 assistant_john()
         elif assistant_decision.lower() == "john watson":
             print("Good choice. You head back inside to speak to John.")
             assistant_john()
+
     scene_2()
+
     def question_3_answer():
         print("YOU: We are here.")
         x()
         print("You both step out of the cab and begin to walk towards the building in Lauriston Gardens surrounded by police cars.")
+
     def question_1_answer():
         print("YOU: I'm a consulting detective. Only one in the world. I invented the job.")
         x()
@@ -331,6 +343,7 @@ if play.lower() == "yes" or play.lower() == "y":
                 question_3_answer()
         elif question_2.lower() == "later":
             question_3_answer()
+
     def scene_3():
         x()
         print("You and John are riding in the cab on your way to Lauriston Gardens, and you notice John keeps glancing at you.")
@@ -359,7 +372,9 @@ if play.lower() == "yes" or play.lower() == "y":
             print("JOHN: The police doesn't go to priavte detectives.")
             x()
             question_1_answer()
+
     scene_3()
+
     def scene_4():
         print("You and John exited the cab and walked up to the police tape surrounding the building.")
         x()
@@ -443,7 +458,9 @@ if play.lower() == "yes" or play.lower() == "y":
             options_examine.remove(examine)
             if len(options_examine) == 0:
                 examining = False
+
     scene_4()
+
     def scene_5():
         print("LESTRADE: Got anything?")
         x()
@@ -621,7 +638,9 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU (yelling up from the bottom of the stairs): Pink!!")
         x()
+
     scene_5()
+
     def found_suitcase():
         print("You look over to John and see him looking down at the coffee table. On the coffee table lays a bright pink suitcase. John looks puzzled.")
         x()
@@ -691,6 +710,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("You jump of the couch and begin to put on your trenchcoat.")
         x()
+
         #page 69
     def scene_6():
         print("You are back in your flat laying on the couch on your back. You had just texted John to come to the flat as soon as possible.")
@@ -822,6 +842,7 @@ if play.lower() == "yes" or play.lower() == "y":
             print("JOHN: Yes.")
             x()
             found_suitcase()
+
     scene_6()
 else:
     print("Goodbye.")
