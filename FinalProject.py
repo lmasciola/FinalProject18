@@ -48,6 +48,41 @@ def murderer():
             elif restart.lower() in ["no", "n"]:
                 print("Goodbye.")
                 sys.exit()
+        elif murderer_1.lower() == "husband":
+            print("You believe the murderer to be the husband. However, when he was told of Jennifer Wilson's death, he was extremely distraught and had an alibi.")
+            x()
+            print("After you confronted the husband and realized he was not the murderer, you returned to London, but were unable to find the murderer.")
+            x()
+            print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
+            x()
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            while restart.lower() not in ["yes", "y", "no", "n"]:
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            if restart.lower() in ["yes", "y"]:
+                scene_4()
+            elif restart.lower() in ["no", "n"]:
+                print("Goodbye.")
+                sys.exit()
+        elif murderer_1.lower() == "lover":
+            print("You believe the murderer to be the lover.")
+            x()
+            print("You searched for days through Jennifer Wilson's bag and other items, but were unable to identify her possible lover(s)")
+            x()
+            print("Time was wasted looking for the lover in hopes of questioning them.")
+            x()
+            print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
+            x()
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            while restart.lower() not in ["yes", "y", "no", "n"]:
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            if restart.lower() in ["yes", "y"]:
+                scene_4()
+            elif restart.lower() in ["no", "n"]:
+                print("Goodbye.")
+                sys.exit()
+        elif murderer_1.lower() == "taxi driver":
+            print("oops")
+            sys.exit
     elif murderer.lower() in ["no", "n"]:
         print("That's okay. Maybe you will know later.")
 
@@ -94,7 +129,6 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: Where?")
         x()
-        murderer()
         print("LESTRADE: Brixton. Lauriston Gardens.")
         x()
         print("Lestrade wouldn't be here unless something was different this time.")
@@ -476,10 +510,13 @@ if play.lower() == "yes" or play.lower() == "y":
             options_examine.remove(examine)
             if len(options_examine) == 0:
                 examining = False
+        possible_murderers.append("husband")
+        possible_murderers.append("lover")
 
     scene_4()
 
     def scene_5():
+        murderer()
         print("LESTRADE: Got anything?")
         x()
         print("YOU: Not much.")
@@ -1044,9 +1081,5 @@ if play.lower() == "yes" or play.lower() == "y":
         print("YOU: What? Yes, yes.")
         x()
         print("You receive a text from Jennifer Wilson's phone that says 'COME WITH ME'")
-
-
-
-
 else:
     print("Goodbye.")
