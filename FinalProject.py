@@ -12,13 +12,18 @@ possible_murderers = ["never mind", "suicide"]
 def x():
     """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
     x = input("")
+    x_options = ["", "clues", "quotes"]
+    while x.lower() not in x_options:
+        x = input("")
     if x == "":
         return x
     elif x.lower() == "clues":
         print(f"The clues you have discovered so far are:")
         print(*clues, sep = "\n")
         x = input("")
+        return
     elif x.lower() == "quotes":
+        print(f"The quotes you have discovered so far are:")
         print(*quotes, sep = "\n")
         x = input("")
 
@@ -44,7 +49,7 @@ def murderer():
             while restart.lower() not in ["yes", "y", "no", "n"]:
                 restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
             if restart.lower() in ["yes", "y"]:
-                scene_4()
+                scene_5()
             elif restart.lower() in ["no", "n"]:
                 print("Goodbye.")
                 sys.exit()
@@ -59,7 +64,7 @@ def murderer():
             while restart.lower() not in ["yes", "y", "no", "n"]:
                 restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
             if restart.lower() in ["yes", "y"]:
-                scene_4()
+                scene_5()
             elif restart.lower() in ["no", "n"]:
                 print("Goodbye.")
                 sys.exit()
@@ -76,13 +81,60 @@ def murderer():
             while restart.lower() not in ["yes", "y", "no", "n"]:
                 restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
             if restart.lower() in ["yes", "y"]:
-                scene_4()
+                scene_5()
             elif restart.lower() in ["no", "n"]:
                 print("Goodbye.")
                 sys.exit()
         elif murderer_1.lower() == "taxi driver":
-            print("oops")
-            sys.exit
+            print("JOHN: Sherlock, you okay?")
+            x()
+            print("YOU: What? Yes, yes.")
+            x()
+            print("You receive a text from Jennifer Wilson's phone that says 'COME WITH ME'")
+            x()
+            print("JOHN: So how can the phone be here?")
+            x()
+            print("YOU: I don’t know ...")
+            x()
+            print("JOHN: I’ll phone it again.")
+            x()
+            print("YOU (putting on your coat and heading out the door): Good idea.")
+            x()
+            print("JOHN: Where are you going?")
+            x()
+            print("YOU: Nowhere. Fresh air, just popping out for a moment.")
+            x()
+            print("JOHN: You sure you’re all right?")
+            x()
+            print("YOU: I’m fine!")
+            x()
+            print("You head outside of your flat. It is currently dark out. You are alone on the street beside the taxi is waiting for you.")
+            x()
+            print("TAXI DRIVER: Taxi for Sherlock Holmes.")
+            x()
+            print("YOU: I didn’t order a taxi.")
+            x()
+            print("TAXI DRIVER: Doesn’t mean you don’t need one.")
+            x()
+            print("YOU: You’re the cabbie - the one who stopped outside Northumberland Street. It was you, not your passenger.")
+            x()
+            print("TAXI DRIVER: You see, no one ever thinks about the cabbie. It’s like we’re invisible. Just the back of a head. Proper advantage for a serial killer.")
+            x()
+            print("YOU: Is this a confession?")
+            x()
+            print("TAXI DRIVER: Oh, yes. And I’ll tell you what else - if you go and get the coppers now, I won’t run, I’ll sit quiet and they can take me down. I promise.")
+            x()
+            print("YOU: Why?")
+            x()
+            print("TAXI DRIVER: Because you’re not going to do that.")
+            x()
+            print("You went with the cabbie driver. He took you to a college that was closed and just talked to you. Eventually, John found you and brought the police to your location. When the police arrived, the taxi driver was dead. However, the driver told you why he did what he did and that he did this because somebody wanted to catch your attention. More importantly, he told you he did it for...")
+            x()
+            print("...")
+            x()
+            print("...")
+            x()
+            print("...Moriarty.")
     elif murderer.lower() in ["no", "n"]:
         print("That's okay. Maybe you will know later.")
 
@@ -925,10 +977,13 @@ if play.lower() == "yes" or play.lower() == "y":
             found_suitcase()
 
     scene_6()
+
     def scene_7():
         print("You and John both leave the flat and walk to a shabby-looking Italian restaurant on Northumberland Street. You stared across the street at 22 Northumberland Street, the address you texted to Jennifer Wilson’s phone. Later in the night, you saw a taxi stopped outside of 22 Northumberland. You ran through the streets of London with John following closely behind after the taxi. When you caught up to the taxi, you were able to see that the man riding in the taxi had recently arrived from the U.S.; he had an alibi and couldn’t have been the killer.")
         x()
         print("However, when you arrive back at your flat, you are greeted with a startled Mrs. Hudson. She informs you that Lestrade, Anderson, Sally and other members of the police department are upstairs in your flat. Lestrade found out that you had found Jennifer Wilson’s suitcase. Because he couldn’t break into your flat, he disguised entering your flat as a drugs bust.")
+        x()
+        print("Back at your flat...")
         x()
         print("LESTRADE: Keep looking guys! (to you) Or you could start helping me properly, and I’ll stand them down.")
         x()
@@ -982,7 +1037,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("JOHN: Please God let me live.")
         x()
-        print("YOU: YEs, but if you were clever, if you were very clever...Kennifer Wilson, running all those lovers. She was clever, and she's telling us something!")
+        print("YOU: Yes, but if you were clever, if you were very clever...Jennifer Wilson, running all those lovers. She was clever, and she's telling us something!")
         x()
         print("Mrs. Hudson enters the flat.")
         x()
@@ -1075,11 +1130,6 @@ if play.lower() == "yes" or play.lower() == "y":
         possible_murderers.append("taxi driver")
         possible_murderers.remove("never mind")
         murderer()
-        x()
-        print("JOHN: Sherlock, you okay?")
-        x()
-        print("YOU: What? Yes, yes.")
-        x()
-        print("You receive a text from Jennifer Wilson's phone that says 'COME WITH ME'")
+    scene_7()
 else:
     print("Goodbye.")
