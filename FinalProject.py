@@ -273,7 +273,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: Who cares about decent? The game, Mrs. Hudson, is on!")
         x()
-        quote_z = quotes("The game, Mrs. Hudson, is on!", "Sherlock Holmes")
+        quote_z = quote("The game, Mrs. Hudson, is on!", "Sherlock Holmes")
         quote_z.introduce()
         quotes.append("The game, Mrs. Hudson, is on! ~Sherlock Holmes")
         x()
@@ -333,6 +333,10 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("JOHN: Ah...")
         x()
+        print("Silence fills the car.")
+        x()
+        print("When you first met John, the first thing you did was analyze him like you do with all people. You then asked him was 'Afghanistan or Iraq?' because you had come to the conclusion that he was an army doctor, but could not come to the conclusion as to where he was an army doctor, so you asked. He seemed surprised by this question. You decide to bring this up to break the silence.")
+        x()
         print("YOU: When I first met you, I asked Afghanistan or Iraq. You seemed surprised.")
         x()
         print("JOHN: How did you know?")
@@ -343,9 +347,9 @@ if play.lower() == "yes" or play.lower() == "y":
         if question_2.lower() == "tell":
             print("YOU: I didn't know. I saw.")
             x()
-            print("YOU: Tanned face --")
+            print("You then begin to explain all of the information you found out about John that led you to your question.")
             x()
-            print("YOU: -- but no tan above the wrists. You've been abroad but not sunbathing.")
+            print("YOU: Tanned face, but no tan above the wrists. You've been abroad but not sunbathing.")
             x()
             print("YOU: Your haircut and the way you hold yourself says military - but your conversation as you entered the room says you trained at Barts. So army doctor. Obvious!")
             x()
@@ -355,7 +359,7 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("You were being a show off.")
             x()
-            show_off = input("Do you want to continue analyzing John? yes or no?")
+            show_off = input("Do you want to continue analyzing John? Enter: 'y' or 'n'.")
             possible_show_off = ["yes", "y", "no", "n"]
             while show_off.lower() not in possible_show_off:
                 show_off = input("Do you want to continue analyzing John? yes or no?")
@@ -378,7 +382,7 @@ if play.lower() == "yes" or play.lower() == "y":
                 x()
                 print("YOU: She must have given it to him recently, this model’s only six months old. It’s a marriage in trouble then - six months on he’s just given it away. If she’d left him, he’d probably have kept the phone - people do, sentiment - but no, he wanted rid of it: he left her. He gave the phone to you - that says he wants you to stay in touch.")
                 x()
-                question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'yes' or 'no'.")
+                question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
                 possible_question_3 = ["yes", "y", "no", "n"]
                 while question_3.lower() not in possible_question_3:
                     question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'yes' or 'no'.")
@@ -430,7 +434,7 @@ if play.lower() == "yes" or play.lower() == "y":
                         print("YOU: There's always something!")
                         x()
                         print("YOU: We are here.")
-                    elif question_4.lower() == "no": #problem
+                    elif question_4.lower() == "no" or question_4.lower() == "n": #problem
                         print("YOU: We are here.")
                 elif question_3.lower() == "no" and question_3.lower() == "n":
                     print("YOU: We are here.")
