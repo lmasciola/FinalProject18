@@ -6,26 +6,26 @@ clues = []
 quotes = []
 #this is the list of funny quotes the player may discover during the episode
 
-possible_murderers = ["never mind", "suicide"]
+possible_murderers = ["suicide"]
 #this is the list of possible ways the Jennifer Wilson died; the "never mind" option in this list can be used if the player doesn't know how Jennifer Wilson died
 
 def x():
     """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
-    x = input("")
+    x = input("<")
     x_options = ["", "clues", "quotes"]
     while x.lower() not in x_options:
-        x = input("")
+        x = input("<")
     if x == "":
         return x
     elif x.lower() == "clues":
         print(f"The clues you have discovered so far are:")
         print(*clues, sep = "\n")
-        x = input("")
+        x = input("<")
         return
     elif x.lower() == "quotes":
         print(f"The quotes you have discovered so far are:")
         print(*quotes, sep = "\n")
-        x = input("")
+        x = input("<")
 
 def murderer():
     """This function will ask the player if they think they know who the murderer is"""
@@ -38,9 +38,7 @@ def murderer():
         murderer_1 = input("Who do you think killed the victim?")
         while murderer_1 not in possible_murderers:
             murderer_1 = input("Who do you think killed the victim?")
-        if murderer_1.lower() == "never mind":
-            print("Okay. Maybe you will know later.")
-        elif murderer_1.lower() == "suicide":
+        if murderer_1.lower() == "suicide":
             print("You had already said that it couldn't have been a suicide, but you have changed your mind.")
             x()
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
@@ -136,7 +134,7 @@ def murderer():
             x()
             print("...Moriarty.")
     elif murderer.lower() in ["no", "n"]:
-        print("That's okay. Maybe you will know later.")
+        print(" ")
 
 class quote:
     """Class defining famous/funny quotes from the episode"""
@@ -158,26 +156,29 @@ class clue:
         #this method introduces/describes the clue to the player
         print(f"You have discovered a new clue: {self.name}. This clue was discovered at {self.place}")
 
-play = input("Would you like to play?")
+play = input("Would you like to play 'Sherlock: A Study in Pink'? Enter: 'y' or 'n'.")
 #this take the user input and asks the player if they want to play the game
 if play.lower() == "yes" or play.lower() == "y":
 #if the player inputs "yes" or "y" the game will start
-    print("INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. (THIS GAME IS BASED OFF OF THE EPISODE OF BBC SHERLOCK A STUDY IN PINK, AND USES DIALOGUE FROM THE SHOW).After every line of text, press enter to continue or type 'clue' to view your current list of clues.")
+    print(f"""INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. This game is based on the episode of BBC Sherlock, 'A Study in Pink,' and uses dialogue from the show. Whenever you see the '<' symbol:
+        -press enter to continue
+        -type 'clues' to view your current list of clues.
+        -type 'quotes' to view the quotes you have unlocked""")
     def scene_1():
         """"Scene one of the game begins when this function is calles"""
         #the story begins. lines of text are printed one by one for the player to read. the player presses enter after every line to get to the next line of text. in between lines of code, the player can type 'clues' to view their list of clues'
         print("Introduction:")
-        print("Your name is Sherlock Holmes, an infamous detective. You live in London in 221B Baker Street with Dr. John Watson. You are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper.")
+        print("Your name is Sherlock Holmes, an infamous detective who lives in present-day London. Yuo have recently moved into a flat at 221B Baker street with Dr. John Watson. Upon meeting Watson, you discovered that he was an army doctor. Currently, you are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper. For some reason, you had a feeling that the suicides weren't actually. This is where the case begins.")
         x()
         print("MRS. HUDSON: What about these suicides, then, Sherlock? Thought that would be right up your street. Three of them, exactly the same. That's a bit funny, isn't it?")
         x()
-        print("You suddenly get a feeling.")
+        print("You suddenly get a feeling. You glance out the window and see a blue flashing light coming from a police car parked below your flat.")
         x()
         print("YOU: Four. There's been a fourth. And there's something different this time.")
         x()
         print("MRS. HUDSON: A fourth? How do you know?")
         x()
-        print("You look out the window to see the blue light of a police car parked below. You hear feet thumping on the stairs. In comes Lestrade, a detective from the local police force who often uses you as a consultant.")
+        print("You hear feet thumping on the stairs. In bursts Lestrade, a detective from the local police force. Lestrade often uses you as a consultant when the police are out of options.")
         x()
         print("YOU: Where?")
         x()
@@ -198,14 +199,16 @@ if play.lower() == "yes" or play.lower() == "y":
         #this is a method from the clue class that introduces/describes the first clue found to the player
         clue_1.introduce()
         #this clue is added to the clues list. now when the player wants to look at their list of clues, this clue will be in the list
-        clues.append("The Fourth Suicide left a note, while the others did not")
+        clues.append("The Fourth Suicide left a note, while the others did not.")
         #the story is continued by printing lines of text followed by the previously definied command x()
         x()
-        print("You think for a moment. There were a few people who worked at the police department that disliked you.")
+        print("You think for a moment. The only things keeping you from jumping at this opportunity were the few people who worked at the police department that disliked you. It would be difficult to work if they were there as well...")
         x()
         print("YOU: Who's on Forensics?")
         x()
         print("LESTRADE: Anderson.")
+        x()
+        print("Anderson was one of the few people you knew would not work with you.")
         x()
         print("YOU: Anderson won't work with me.")
         x()
@@ -213,13 +216,15 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: But I need an assistant.")
         x()
-        print("LESTRADE: Will you come?")
+        print("LESTRADE(almost begging): Will you come?")
         x()
         print("YOU: Not in a police car. I'll be right behind you.")
         x()
         print("LESTRADE: Thank you!")
         x()
-        print("Lestrade left and headed to Lauriston Gardens.")
+        print("Lestrade disappeared out the door of your flat, down the stairs and back to his police car, heading to Lauriston Gardens.")
+        x()
+        print("You couldn't help the smile that appeared on your face. You finally had a case to work on!")
         x()
         print("YOU: Brilliant! And I thought it was going to be a boring evening. Serial suicides, and now a note. Mrs. Hudson, I'll be late -- might need some food.")
         x()
@@ -234,9 +239,7 @@ if play.lower() == "yes" or play.lower() == "y":
     def assistant_john():
         """This function continues the story when the player picks John as their assistant to take to the crime scene."""
         #the story is continued by printing lines of text followed by the previously defined function x()
-        print("You walk back inside the flat.")
-        x()
-        print("YOU: You're a doctor.")
+        print("YOU (to John): You're a doctor.")
         x()
         print("John looks up startled.")
         x()
@@ -270,24 +273,28 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: Who cares about decent? The game, Mrs. Hudson, is on!")
         x()
+        quote_z = quotes("The game, Mrs. Hudson, is on!", "Sherlock Holmes")
+        quote_z.introduce()
+        quotes.append("The game, Mrs. Hudson, is on! ~Sherlock Holmes")
+        x()
         print("You and John run out of the flat. You hail a cab and climb inside, telling the cabbie to head to Lauriston Gardens.")
 
     def scene_2():
         """Scene 2 will begin when this function is called"""
-        assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
+        assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant, Mrs. Hudson or John Watson? Enter 'john watson' or 'mrs. hudson'.")
         #this takes the user input of who they want to take to the crime scene with them
         possible_assistants = ["john watson", "mrs. hudson"]
         #this is the list of acceptable inputs when the player is prompted with the previously defined assistant_decision
         while assistant_decision.lower() not in possible_assistants:
             #this is a while loop that continues to ask for the player's input until their input for assistant_decision matches one of the options in possible_assistants
-            assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant? Mrs. Hudson or John Watson?")
+            assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant, Mrs. Hudson or John Watson? Enter 'john watson' or 'mrs. hudson'.")
         if assistant_decision.lower() == "mrs. hudson":
             #the following will happen if the user's input to assistant_decision is 'mrs. hudson'
-            print("She probably wouldn't do well at a crime scene.")
-            take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'yes' or 'no.'")
+            print("Mrs. Hudson probably wouldn't do well at a crime scene.")
+            take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'y' or 'n'.")
             #this asks for the user's input on if they are sure they want to take Mrs. Hudson to the crime scene
             while take_hudson.lower() not in ["yes", "y", "no", "n"]:
-                take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'yes' or 'no.'")
+                take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'y' or 'n'.")
             if take_hudson.lower() == "y" or take_hudson.lower() == "yes":
                 #if the user's input for take_hudson is 'yes' or 'y', a string will be printed telling the player they have failed
                 print("You take Mrs. Hudson to the crime scene. She wasn't that helpful. The case was never solved. You have failed.")
@@ -815,7 +822,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: - would panic.")
         x()
-        print("You jump of the couch and begin to put on your trenchcoat.")
+        print("You jump off the couch and begin to put on your trenchcoat.")
         x()
         print("JOHN: Have you talked to the police?")
         x()
@@ -1127,8 +1134,8 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU (thinking to yourself): Who hunts in the middle of a crowd?")
         x()
+        print("You are about to be asked if you know who the murderer is. This is your last chance to figure out who the murderer is.")
         possible_murderers.append("taxi driver")
-        possible_murderers.remove("never mind")
         murderer()
     scene_7()
 else:
