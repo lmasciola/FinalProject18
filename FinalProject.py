@@ -30,10 +30,10 @@ def x():
 
 def murderer():
     """This function will ask the player if they think they know who the murderer is"""
-    murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'yes' or 'no'.")
+    murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'y' or 'n'.")
     options = ["yes", "y", "no", "n"]
     while murderer.lower() not in options:
-        murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'yes' or 'no'.")
+        murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'y' or 'n'.")
     if murderer.lower() == "yes" or murderer.lower() == "y":
         print(f"These are the possible murderers so far: {', '.join(possible_murderers)}")
         murderer_1 = input("Who do you think killed the victim?")
@@ -44,9 +44,9 @@ def murderer():
             x()
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
             x()
-            restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             while restart.lower() not in ["yes", "y", "no", "n"]:
-                restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
                 scene_5()
             elif restart.lower() in ["no", "n"]:
@@ -59,9 +59,9 @@ def murderer():
             x()
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
             x()
-            restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             while restart.lower() not in ["yes", "y", "no", "n"]:
-                restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
                 scene_5()
             elif restart.lower() in ["no", "n"]:
@@ -76,9 +76,9 @@ def murderer():
             x()
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
             x()
-            restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             while restart.lower() not in ["yes", "y", "no", "n"]:
-                restart = input("Would you like to go back to the crime scene and restart? Enter: 'yes' or 'no'.")
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
                 scene_5()
             elif restart.lower() in ["no", "n"]:
@@ -171,7 +171,6 @@ if play.lower() == "yes" or play.lower() == "y":
         print("Introduction:")
         print("Your name is Sherlock Holmes, an infamous detective who lives in present-day London. Yuo have recently moved into a flat at 221B Baker street with Dr. John Watson. Upon meeting Watson, you discovered that he was an army doctor. Currently, you are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper. For some reason, you had a feeling that the suicides weren't actually. This is where the case begins.")
         x()
-        murderer()
         print("MRS. HUDSON: What about these suicides, then, Sherlock? Thought that would be right up your street. Three of them, exactly the same. That's a bit funny, isn't it?")
         x()
         print("You suddenly get a feeling. You glance out the window and see a blue flashing light coming from a police car parked below your flat.")
@@ -380,11 +379,11 @@ if play.lower() == "yes" or play.lower() == "y":
                 x()
                 print("YOU: She must have given it to him recently, this model’s only six months old. It’s a marriage in trouble then - six months on he’s just given it away. If she’d left him, he’d probably have kept the phone - people do, sentiment - but no, he wanted rid of it: he left her. He gave the phone to you - that says he wants you to stay in touch.")
                 x()
-                question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
-                possible_question_3 = ["yes", "y", "no", "n"]
-                while question_3.lower() not in possible_question_3:
-                    question_3 = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
-                if question_3.lower() == "y" or question_3.lower() == "yes":
+                harry_question = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
+                possible_harry_question = ["yes", "y", "no", "n"]
+                while harry_question.lower() not in possible_harry_question:
+                    harry_question = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
+                if harry_question.lower() == "y" or harry_question.lower() == "yes":
                     print("YOU: You’re looking for cheap accommodation, but you’re not going to your brother for help - that says you’ve got problems with him. Maybe you liked his wife, maybe you don’t like his drinking --")
                     x()
                     print("JOHN: How can you possibly know about the drinking?")
@@ -408,11 +407,11 @@ if play.lower() == "yes" or play.lower() == "y":
                     print("YOU: Piss off.")
                     x()
                     print("Curiosity was getting the best of you. You were wondering if you had gotten everything right about John.")
-                    question_4 = input("Do you want to ask John if you got everything correct? Enter: 'y' or 'n'.")
-                    possible_question_4 = ["yes", "no", "y", "n"]
-                    while question_4.lower() not in possible_question_4:
-                        question_4 = input("Do you want to ask John if you got everything correct? Enter: 'y' or 'n'.")
-                    if question_4.lower() == "y" or question_4.lower() == "yes":
+                    correct_question = input("Do you want to ask John if you got everything correct? Enter: 'y' or 'n'.")
+                    possible_correct_question = ["yes", "no", "y", "n"]
+                    while correct_question.lower() not in possible_correct_question:
+                        correct_question = input("Do you want to ask John if you got everything correct? Enter: 'y' or 'n'.")
+                    if correct_question.lower() == "y" or correct_question.lower() == "yes":
                         print("YOU: Did I get anything wrong?")
                         x()
                         print("JOHN: Harry and me don’t get on, never have. Clara and Harry split up three months ago, they’re getting a divorce. Harry’s a drinker --")
@@ -433,7 +432,7 @@ if play.lower() == "yes" or play.lower() == "y":
                         x()
                         print("YOU: We are here.")
                         x()
-                    elif question_4.lower() == "no" or question_4.lower() == "n":
+                    elif correct_question.lower() == "no" or correct_question.lower() == "n":
                         print("YOU: We are here.")
                         x()
                 else:
@@ -478,11 +477,11 @@ if play.lower() == "yes" or play.lower() == "y":
     scene_3()
 
     def scene_4():
-        print("You and John exited the cab and walked up to the police tape surrounding the building.")
+        print("You and John have arrived at Lauriston Gardens. You both exited the cab and walked up to the police tape surrounding the building.")
         x()
         print("SALLY: Hello, freak.")
         x()
-        print("Sally works at the police department.")
+        print("Sally works at the police department. She is also a person you dislike.")
         x()
         print("YOU: I'm here to see Detective Inspector Lestrade.")
         x()
@@ -496,11 +495,11 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("SALLY (into her walkie talkie): Freak's here. Bringing him in.")
         x()
-        print("Sally brings you and John into the building and upstairs to the second floor. You walk into the room where the crime was committed. Lestrade is there.")
+        print("Sally guides you and John into the building and brings you upstairs to the second floor. You walk into the room where the crime was committed. Lestrade is there.")
         x()
-        print("LESTRADE: Jennifer Wilson, according to her credit cards - we’re running them now for contact details. Hasn’t been here long - some kids found her.")
+        print("LESTRADE (talking about the victim): Jennifer Wilson, according to her credit cards - we’re running them now for contact details. Hasn’t been here long - some kids found her.")
         x()
-        print("A woman in a bright pink coat, and pink shoes, lies dead, sprawled face down. The room remained silent, but you couldn't think.")
+        print("A woman in a bright pink coat, and pink shoes, lies dead, sprawled face down on the floor. The room remained silent, but you couldn't think.")
         x()
         clue_a = clue("Jennifer Wilson's outfit is completely pink", "Lauriston Gardens")
         clue_a.introduce()
@@ -523,13 +522,15 @@ if play.lower() == "yes" or play.lower() == "y":
         examining = True
         options_examine = ["hand", "coat", "jewelry", "leg"]
         while examining:
-            examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)}")
+            examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)} ")
             while examine.lower() not in options_examine:
-                examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)}")
+                examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)} ")
             if examine.lower() == "hand":
-                print("With her left hand, Wilson had scratched word into the floorboards. The word is 'Rache.'")
+                print("With her left hand, Wilson had scratched a word into the wooden floorboards. The word is 'Rache.'")
                 x()
                 print("'Rache' means 'revenge' in German.")
+                x()
+                print("What else could that mean?")
                 x()
                 print("You think for a moment...")
                 x()
@@ -549,6 +550,7 @@ if play.lower() == "yes" or play.lower() == "y":
                 print("You pull a fold-away umbrella out of her coat pocket. It was dry.")
                 x()
                 print("You run your hand under the collar of the woman's coat. The collar is wet.")
+                x()
                 clue_3 = clue("Jennifer Wilson was outside in a windy rain storm", "Lauriston Gardens")
                 clue_3.introduce()
                 clues.append("Jennifer Wilson was outside in a rain storm prior to her death.")
@@ -663,7 +665,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("LESTRADE: For God's sake. If you're just making this up...")
         x()
-        print("YOU: The wedding ring, ten years old at least. The rest of her jewellery has been regularly cleaned, but not her wedding rings - state of her marriage, right there. The inside of the rings are shinier than the outside - that means they’re regularly removed; the only polishing they get is when she works them off her finger. It’s not for work - look at her nails, she doesn’t work with her hands - so what, or rather who, does she remove her rings for? Clearly not one lover - she’d never sustain the fiction of being single over time - so more likely a string of them. Simple!")
+        print("YOU: The wedding ring. The rest of her jewellery has been regularly cleaned, but not her wedding rings - state of her marriage, right there. The inside of the rings are shinier than the outside - that means they’re regularly removed; the only polishing they get is when she works them off her finger. It’s not for work - look at her nails, she doesn’t work with her hands - so what, or rather who, does she remove her rings for? Clearly not one lover - she’d never sustain the fiction of being single over time - so more likely a string of them. Simple!")
         x()
         print("JOHN: Brilliant! Sorry...")
         x()
@@ -679,13 +681,13 @@ if play.lower() == "yes" or play.lower() == "y":
         quote_4.introduce()
         quotes.append("Dear God, what's it like in your funny little brains? It must be so boring. ~Sherlock Holmes")
         x()
-        print("YOU: It’s slightly damp - she’s been in heavy rain within the last few hours. No rain anywhere in London in that time. Under her coat collar is damp too. She turned it up against the wind! She’s got an umbrella in her left pocket but it’s unused and dry. Not just wind, strong wind - too strong to use her umbrella.We know from her suitcase that she’s staying over night so she must have a come a decent distance. But she can’t have travelled more than two or three hours, cos her coat hasn’t dried. So where has there been heavy rain and strong wind within the radius of that travel time? Cardiff.")
+        print("YOU: Her coat. It’s slightly damp - she’s been in heavy rain within the last few hours. No rain anywhere in London in that time. Under her coat collar is damp too. She turned it up against the wind! She’s got an umbrella in her left pocket but it’s unused and dry. Not just wind, strong wind - too strong to use her umbrella. We know from her suitcase that she’s staying over night so she must have a come a decent distance. But she can’t have travelled more than two or three hours, cos her coat hasn’t dried. So where has there been heavy rain and strong wind within the radius of that travel time? I did a quick search on my phone, and the answer is Cardiff.")
         x()
         print("JOHN: Fantastic!")
         x()
         print("You and Lestrade look at John.")
         x()
-        print("SHERLOCK: Do you know you do that out loud?")
+        print("YOU: Do you know you do that out loud?")
         x()
         print("JOHN: ... sorry, I'll shut up.")
         x()
@@ -709,7 +711,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("There should be a case...")
         x()
-        print("YOU: ... say that again.")
+        print("YOU (standing up): ... say that again.")
         x()
         print("LESTRADE: There wasn’t a case. There was never any suitcase here.")
         x()
@@ -1141,9 +1143,10 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU (thinking to yourself): Who hunts in the middle of a crowd?")
         x()
-        print("You are about to be asked if you know who the murderer is. This is your last chance to figure out who the murderer is.")
+        print("You are about to be asked if you know who the murderer is. This is your last chance to figure out who the murderer is. If you respond 'n', the game will end.")
         possible_murderers.append("taxi driver")
         murderer()
+        print("The end.")
     scene_7()
 else:
     print("Goodbye.")
