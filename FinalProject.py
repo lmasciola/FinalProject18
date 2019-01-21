@@ -280,7 +280,7 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
 
     def scene_1():
-        """"Scene one of the game begins when this function is calles"""
+        """"Scene one of the game begins when this function is called"""
         #the story begins. lines of text are printed one by one for the player to read followed by calling the x() function to start the story
         print("Introduction:")
         print("Your name is Sherlock Holmes, an infamous detective who lives in present-day London. You have recently moved into a flat at 221B Baker street with Dr. John Watson. Upon meeting Watson, you discovered that he was an army doctor. Currently, you are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper. For some reason, you had a feeling that the suicides weren't actually. This is where the case begins.")
@@ -420,12 +420,17 @@ if play.lower() == "yes" or play.lower() == "y":
     scene_2()
 
     def job_question_response():
+        """This function continues the conversation between the user and John while they are on their way to Lauriston Gardens"""
         print("YOU: I'm a consulting detective. Only one in the world. I invented the job.")
         x()
+        #the second quote is created based off of the quote class
         quote_2 = quote("I'm a consulting detective. Only one in the world. I invented the job.", "Sherlock Holmes")
+        #the second quote is introduced to the user based on the introduce method of the quote class
         quote_2.introduce()
+        #this quote is added to the quotes list
         quotes.append("I'm a consulting detective. Only one in the world. I invented the job. ~Sherlock Holmes")
         x()
+        #the following prints and the x() function is called to continue the story
         print("JOHN: What does that mean?")
         x()
         print("YOU: It means that when the police are out of their depth - which is always - they consult me.")
@@ -440,10 +445,14 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("JOHN: How did you know?")
         tell_question = input("How would you like to answer? Enter 'tell' OR 'later'.")
+        #the above variable take the user's input on whether or not they want to tell John how they knew
         possible_tell_question = ['tell', 'later']
+        #the above list is the list of acceptable inputs for the tell_question variable
         while tell_question.lower() not in possible_tell_question:
+            #this while loop will continue to ask the user the tell_question if their input is not in the possible_tell_question list
             tell_question = input("How would you like to answer? Enter 'tell' OR 'later'.")
         if tell_question.lower() == "tell":
+            #if the user's input to tell_question is "tell", the following will print
             print("YOU: I didn't know. I saw.")
             x()
             print("You then begin to explain all of the information you found out about John when you analyzed him that led you to your question.")
@@ -459,10 +468,14 @@ if play.lower() == "yes" or play.lower() == "y":
             print("You were being a show off.")
             x()
             show_off = input("Do you want to continue analyzing John? Enter: 'y' or 'n'.")
+            #the above variable takes the user's input on whether or not they want to continue analyzing John
             possible_show_off = ["yes", "y", "no", "n"]
+            #the above list are the acceptable inputs for the show_off variable
             while show_off.lower() not in possible_show_off:
+                #this while loop will continue to prompt the user with the show_off variable until they provide an input that is in possible_show_off
                 show_off = input("Do you want to continue analyzing John? Enter: 'y' or 'n'.")
             if show_off.lower() == "y" or show_off.lower() == "yes":
+                #if the user's input to show_off is "y" or "yes", the following will print
                 print("YOU: Then there’s your brother --")
                 x()
                 print("You grab John's phone out of his hand and examine it.")
@@ -482,10 +495,14 @@ if play.lower() == "yes" or play.lower() == "y":
                 print("YOU: She must have given it to him recently, this model’s only six months old. It’s a marriage in trouble then - six months on he’s just given it away. If she’d left him, he’d probably have kept the phone - people do, sentiment - but no, he wanted rid of it: he left her. He gave the phone to you - that says he wants you to stay in touch.")
                 x()
                 harry_question = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
+                #the above variable takes the user input on whether or not they want to ask John about Harry
                 possible_harry_question = ["yes", "y", "no", "n"]
+                #the above list are the acceptable inputs for the harry_question variable
                 while harry_question.lower() not in possible_harry_question:
+                    #this while loop will continue to ask the user the harry_question variable while their input is not in the possible_harry_question list
                     harry_question = input("You have a hunch about Harry. Do you want to mention it to John? Enter: 'y' or 'n'.")
                 if harry_question.lower() == "y" or harry_question.lower() == "yes":
+                    #if the user's input to harry_question is "y" or "yes", the following will print
                     print("YOU: You’re looking for cheap accommodation, but you’re not going to your brother for help - that says you’ve got problems with him. Maybe you liked his wife, maybe you don’t like his drinking --")
                     x()
                     print("JOHN: How can you possibly know about the drinking?")
@@ -509,11 +526,16 @@ if play.lower() == "yes" or play.lower() == "y":
                     print("YOU: Piss off.")
                     x()
                     print("Curiosity was getting the best of you. You were wondering if you had gotten everything right about John.")
+                    x()
                     correct_question = input("Do you want to ask John if you got everything correct? Enter: 'y' or 'n'.")
+                    #this variable takes the user's input on whether or not they want to ask John if they got everything correct about him
                     possible_correct_question = ["yes", "no", "y", "n"]
+                    #the above list is all of the acceptable inputs for the variable correct_question
                     while correct_question.lower() not in possible_correct_question:
+                        #this while loop will continue to ask the user the correct_question variable while their input is not in the possible_correct_question list
                         correct_question = input("Do you want to ask John if you got everything correct? Enter: 'y' or 'n'.")
                     if correct_question.lower() == "y" or correct_question.lower() == "yes":
+                        #if the user's input to correct_question is "y" or "yes", the following will print
                         print("YOU: Did I get anything wrong?")
                         x()
                         print("JOHN: Harry and me don’t get on, never have. Clara and Harry split up three months ago, they’re getting a divorce. Harry’s a drinker --")
@@ -535,19 +557,25 @@ if play.lower() == "yes" or play.lower() == "y":
                         print("YOU: We are here.")
                         x()
                     elif correct_question.lower() == "no" or correct_question.lower() == "n":
+                        #if the user's input to correct_question is "n" or "no", the following prints
                         print("YOU: We are here.")
                         x()
                 else:
+                    #if the user's input to harry_question is not "y" or "yes", the following prints
                     print("YOU: We are here.")
                     x()
             elif show_off.lower() == "n" or show_off.lower() == "no":
+                #if the user's input to show_off is "n" or "no", the following prints
                 print("YOU: We are here.")
                 x()
         elif tell_question.lower() == "later":
+            #if the user's input to tell_question is "later", the following prints
             print("YOU: We are here.")
             x()
 
     def scene_3():
+        """"Scene three of the game begins when this function is called"""
+        #the following prints and x() is called to continue the story
         x()
         print("You and John are riding in the cab on your way to Lauriston Gardens, and you notice John keeps glancing at you.")
         x()
@@ -560,12 +588,17 @@ if play.lower() == "yes" or play.lower() == "y":
         print("JOHN: Who are you? What do you do?")
         x()
         job_question = input("How would you like to answer? Enter: 'consulting detective' OR 'sassy remark'.")
+        #this variable take the user's input on how they want to respond to John's question about their job
         possible_job_question = ["consulting detective", "sassy remark"]
+        #the above list are the acceptable inputs for the job_question variable
         while job_question.lower() not in possible_job_question:
+            #this loop will continue to ask the user the job_question while their input is not in possible_job_question list
             job_question = input("How would you like to answer? Enter: 'consulting detective' OR 'sassy remark'.")
         if job_question.lower() == "consulting detective":
+            #if the user's input to job_question is "consulting detective", the job_question_response() function is called
             job_question_response()
         elif job_question.lower() == "sassy remark":
+            #the following prints and x() is called to continue the story
             print("YOU: What do you think?")
             x()
             print("JOHN: I'd say you were a private detective, but --")
@@ -574,11 +607,15 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("JOHN: The police doesn't go to priavte detectives.")
             x()
+            #the job_question_response() function is called
             job_question_response()
 
+    #the previously defined function scene_3() is called
     scene_3()
 
     def scene_4():
+        """Scene four of the game begins when this function is called"""
+        #the following prints and x() is called to continue the story
         print("You and John have arrived at Lauriston Gardens. You both exited the cab and walked up to the police tape surrounding the building.")
         x()
         print("SALLY: Hello, freak.")
@@ -597,8 +634,10 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("SALLY (into her walkie talkie): Freak's here. Bringing him in.")
         x()
+        #the word global is used to show that the varibale being identified was defined outside of the function
         global friendship_lestrade
         if friendship_lestrade >= 2:
+            #if the reader's friendship level with Lestrade is greater than or equal to 2, the following prints and x() is called to continue the story
             print("Your friendship level with Lestrade was high enough for him to let you into the crime scene. Congrats!")
             x()
             print("LESTRADE (through the walkie talkie): Bring them in.")
@@ -609,12 +648,12 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("A woman in a bright pink coat, and pink shoes, lies dead, sprawled face down on the floor. The room remained silent, but you couldn't think.")
             x()
-            clue_a = clue("Jennifer Wilson's outfit is completely pink", "Lauriston Gardens")
-            clue_a.introduce()
+            clue_2 = clue("Jennifer Wilson's outfit is completely pink", "Lauriston Gardens")
+            clue_2.introduce()
             clues.append("Jennifer Wilson's outfit is completely pink")
             x()
-            clue_b = clue("Jennifer Wilson's outfit shows she is a professional person", "Lauriston Gardens")
-            clue_b.introduce()
+            clue_3 = clue("Jennifer Wilson's outfit shows she is a professional person", "Lauriston Gardens")
+            clue_3.introduce()
             clues.append("Jennifer Wilson's outfit shows she is a professional person")
             x()
             print("YOU: Shut up!")
@@ -644,8 +683,8 @@ if play.lower() == "yes" or play.lower() == "y":
                     x()
                     print("Rachel.")
                     x()
-                    clue_2 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel'", "Lauriston Gardens")
-                    clue_2.introduce()
+                    clue_4 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel'", "Lauriston Gardens")
+                    clue_4.introduce()
                     clues.append("Jennifer Wilson scratched 'Rachel' into the floorboards")
                     x()
                     print("You look at Wilson's fingernails. All were painted pink to match her coat and heels. The only nails chip were those she used to carve into the wooden floor.")
@@ -659,28 +698,28 @@ if play.lower() == "yes" or play.lower() == "y":
                     x()
                     print("You run your hand under the collar of the woman's coat. The collar is wet.")
                     x()
-                    clue_3 = clue("Jennifer Wilson was outside in a windy rain storm", "Lauriston Gardens")
-                    clue_3.introduce()
+                    clue_6 = clue("Jennifer Wilson was outside in a windy rain storm", "Lauriston Gardens")
+                    clue_6.introduce()
                     clues.append("Jennifer Wilson was outside in a rain storm prior to her death.")
                     x()
                 elif examine.lower() == "jewelry":
                     print("You examine the woman's left hand. The woman was wearing her wedding ring. Unlike all of her other jewelry, her wedding ring was dirty.")
                     x()
-                    clue_4 = clue("Jennifer Wilson was unhappily married", "Lauriston Gardens")
-                    clue_4.introduce()
+                    clue_7 = clue("Jennifer Wilson was unhappily married", "Lauriston Gardens")
+                    clue_7.introduce()
                     clues.append("Jennifer Wilson was unhappily married.")
                     x()
                     print("You take off Wilson's wedding ring. While the outside is dirty, the inside is clean like her other jewelry, meaning the ring is regularly removed. You believe that Wilson was probably an adulter whose lovers did not know she was married.")
                     x()
-                    clue_6 = clue ("Jennifer Wilson was an adulterer", "Lauriston Gardens")
-                    clue_6.introduce()
+                    clue_8 = clue ("Jennifer Wilson was an adulterer", "Lauriston Gardens")
+                    clue_8.introduce()
                     clues.append("Jennifer Wilson was an adulterer.")
                     x()
                 elif examine.lower() == "leg":
                     print("You look at the back of Wilson's right leg. It is covered in small splashes, probably from a suitcase she was carrying.")
                     x()
-                    clue_7 = clue("Wilson had a suitcase with her", "Lauriston Gardens")
-                    clue_7.introduce()
+                    clue_9 = clue("Wilson had a suitcase with her", "Lauriston Gardens")
+                    clue_9.introduce()
                     clues.append("Wilson had a suitcase with her.")
                     x()
                 options_examine.remove(examine)
@@ -695,6 +734,7 @@ if play.lower() == "yes" or play.lower() == "y":
     scene_4()
 
     def tell_lestrade():
+        """This function continues scene 5 when called"""
         print("You have come up with many conclusions about Jennifer Wilson:")
         x()
         print("YOU: Victim is in her late forties. Professional person going by her clothes - I’d guess something in the media, going by the frankly alarming shade of pink. She’s travelled from Cardiff today, intending to stay for one night - that’s obvious from the size of her suitcase -- ")
@@ -803,6 +843,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
 
     def scene_5():
+        """"Scene 5 of the game begins when this function is called"""
         murderer()
         print("LESTRADE: Got anything?")
         x()
@@ -897,6 +938,7 @@ if play.lower() == "yes" or play.lower() == "y":
     scene_5()
 
     def found_suitcase():
+        """This function continues scene 6 when called"""
         print("You look over to John and see him looking down at the suitcase on the coffee table. John looks puzzled.")
         x()
         print("JOHN: That’s ... that’s the pink lady’s case ... Jennifer Wilson’s case...")
@@ -993,6 +1035,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
 
     def scene_6():
+        """"Scene 6 of the game begins when this function is called"""
         print("A few hours later, you are back in your flat laying on the couch on your back. You had just texted John to come to the flat as soon as possible. After you had left Lauriston Gardens, you searched the area for the pink suitcase belonging to Jennifer Wilson. You had found it, and it was sitting open on your coffee table. Inside the case you expected to find her phone, but did not. The murderer probably had her phone still.")
         x()
         print("Eventually John walks through the door.")
@@ -1129,6 +1172,7 @@ if play.lower() == "yes" or play.lower() == "y":
     scene_6()
 
     def scene_7():
+        """"Scene 7 of the game begins when this function is called"""
         print("You and John both leave the flat and walk to a shabby-looking Italian restaurant on Northumberland Street. You stared across the street at 22 Northumberland Street, the address you texted to Jennifer Wilson’s phone. Later in the night, you saw a taxi stopped outside of 22 Northumberland. You ran through the streets of London with John following closely behind after the taxi. When you caught up to the taxi, you were able to see that the man riding in the taxi had recently arrived from the U.S.; he had an alibi and couldn’t have been the killer.")
         x()
         print("However, when you arrive back at your flat, you are greeted with a startled Mrs. Hudson. She informs you that Lestrade, Anderson, Sally and other members of the police department are upstairs in your flat. Lestrade found out that you had found Jennifer Wilson’s suitcase. Because he couldn’t break into your flat, he disguised entering your flat as a drugs bust.")
