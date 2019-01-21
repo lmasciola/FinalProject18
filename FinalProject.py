@@ -7,55 +7,73 @@ quotes = []
 #this is the list of funny quotes the player may discover during the episode
 
 possible_murderers = ["suicide"]
-#this is the list of possible ways the Jennifer Wilson died; the "never mind" option in this list can be used if the player doesn't know how Jennifer Wilson died
+#this is the list of possible ways the Jennifer Wilson died
+
+friendship_lestrade = 3
+#this variable measures your friendship level with Lestrade and will be altered based on decisions made during the games
 
 def x():
-    """Players to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' to see the list of clues they have so far."""
+    """Players will be able to read text one line at a time and press enter to read the next line of text. The player will also be able to type the word 'clues' or 'quotes' to see the list of clues or quotes they have so far."""
     x = input("<")
+    #this takes the user's input after they read each line of text
     x_options = ["", "clues", "quotes"]
+    #this is the list of options for the variable x
     while x.lower() not in x_options:
+        #this while loop will continue to ask the user for a valid input to x if their input is not in the x_options list
         x = input("<")
     if x == "":
+        #if the user input to x is "", the next line of text will print
         return x
     elif x.lower() == "clues":
+        #if the user input to x is "clues", the list of clues will print and then the user will be asked for their input to x again
         print(f"The clues you have discovered so far are:")
         print(*clues, sep = "\n")
         x = input("<")
         return
     elif x.lower() == "quotes":
+        #if the user input to x is "quotes", the list of quotes will print and then the user will be asked for their input to x again
         print(f"The quotes you have discovered so far are:")
         print(*quotes, sep = "\n")
         x = input("<")
         return
 
-friendship_john = 3
-friendship_lestrade = 3
-
 def murderer():
     """This function will ask the player if they think they know who the murderer is"""
     murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'y' or 'n'.")
+    #this takes the user's input to the above question
     options = ["yes", "y", "no", "n"]
+    #this is the list of options for the variable murder
     while murderer.lower() not in options:
+        #this while loop will continue to ask the user for a valid input to murderer if their input is not in the options list
         murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'y' or 'n'.")
     if murderer.lower() == "yes" or murderer.lower() == "y":
+        #if the user input to murderer is "y" or "yes", the possible murderers list will be printed and the user will be prompted with another question
         print(f"These are the possible murderers so far: {', '.join(possible_murderers)}")
         murderer_1 = input("Who do you think killed the victim?")
+        #this input will ask the user's input the above question
         while murderer_1 not in possible_murderers:
+            #this while loop will continue to ask the user for a valid input to murderer_1 if their input is not in the possible_murderers list
             murderer_1 = input("Who do you think killed the victim?")
         if murderer_1.lower() == "suicide":
+            #if the user's input to murderer_1 is "suicide", the following will print
             print("You had already said that it couldn't have been a suicide, but you have changed your mind.")
             x()
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #this variable will take the user's input to the above question
             while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop will continue to ask the user for a valid input to restart if their input is not in the above list
                 restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "yes" or "y", the scene_5() function is called
                 scene_5()
             elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "no" or "n", the following will be print and the game will end (using sys.exit())
                 print("Goodbye.")
                 sys.exit()
         elif murderer_1.lower() == "husband":
+            #if the input to murder_1 is "husband", the following will print
             print("You believe the murderer to be the husband. However, when he was told of Jennifer Wilson's death, he was extremely distraught and had an alibi.")
             x()
             print("After you confronted the husband and realized he was not the murderer, you returned to London, but were unable to find the murderer.")
@@ -63,14 +81,19 @@ def murderer():
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #this variable will take the user's input to the above question
             while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop will continue to ask the user for a valid input to restart if their input is not in the above list
                 restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "yes" or "y", the scene_5() function is called
                 scene_5()
             elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "no" or "n", the following will be print and the game will end (using sys.exit())
                 print("Goodbye.")
                 sys.exit()
         elif murderer_1.lower() == "lover":
+            #if the input to murder_1 is "lover", the following will print
             print("You believe the murderer to be the lover.")
             x()
             print("You searched for days through Jennifer Wilson's bag and other items, but were unable to identify her possible lover(s)")
@@ -80,14 +103,19 @@ def murderer():
             print("In the coming months, 5 more 'suicides' appear in the newspapers. The police are out of their depth. You now definitey think that they weren't suicides. But it's too late. Even if you are able to find the killer, 5 more lives have been lost because of your misjudgement.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #this variable will take the user's input to the above question
             while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop will continue to ask the user for a valid input to restart if their input is not in the above list
                 restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "yes" or "y", the scene_5() function is called
                 scene_5()
             elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "no" or "n", the following will be print and the game will end (using sys.exit())
                 print("Goodbye.")
                 sys.exit()
         elif murderer_1.lower() == "taxi driver":
+            #if the input to murder_1 is "taxi driver", the following will print and the game will end
             print("JOHN: Sherlock, you okay?")
             x()
             print("YOU: What? Yes, yes.")
@@ -138,6 +166,7 @@ def murderer():
             x()
             print("...Moriarty.")
     elif murderer.lower() in ["no", "n"]:
+        #if the user's input to murderer is "no" or "n", the function x() is called
         x()
 
 class quote:
@@ -147,6 +176,7 @@ class quote:
         self.quote = quote
         self.person = person
     def introduce(self):
+        #this method introduces/describes the quote to the player
         print(f"You have discovered the following quote: {self.quote} ~{self.person}")
 
 class clue:
@@ -163,13 +193,15 @@ class clue:
 play = input("Would you like to play 'Sherlock: A Study in Pink'? Enter: 'y' or 'n'.")
 #this take the user input and asks the player if they want to play the game
 if play.lower() == "yes" or play.lower() == "y":
-#if the player inputs "yes" or "y" the game will start
+#if the player inputs "yes" or "y", the game will start and the following will print
     print(f"""INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. This game is based on the episode of BBC Sherlock, 'A Study in Pink,' and uses dialogue from the show. Whenever you see the '<' symbol:
         -press enter to continue
         -type 'clues' to view your current list of clues.
         -type 'quotes' to view the quotes you have unlocked""")
 
     def different_lestrade():
+        """This function continues Scene 1 of the story"""
+        #the following prints and the function x() is called
         print("LESTRADE: You know how they never leave notes?")
         x()
         print("YOU: Yeah.")
@@ -182,7 +214,7 @@ if play.lower() == "yes" or play.lower() == "y":
         clue_1.introduce()
         #this clue is added to the clues list. now when the player wants to look at their list of clues, this clue will be in the list
         clues.append("The Fourth Suicide left a note, while the others did not.")
-        #the story is continued by printing lines of text followed by the previously definied command x()
+        #the following prints and the function x() is called to continue the story
         x()
         print("You think for a moment. The only things keeping you from jumping at this opportunity were the few people who worked at the police department that disliked you. It would be difficult to work if they were there as well...")
         x()
@@ -201,11 +233,15 @@ if play.lower() == "yes" or play.lower() == "y":
         print("LESTRADE(almost begging): Will you come?")
         x()
         go_to_lg = input("Lestrade has asked you to go to Lauriston Gardens. How will you respond: 'now' or 'later'?")
+        #the above takes the user's input to the previous question
         while go_to_lg.lower() not in ['now', 'later']:
+            #this while loop will continue to prompt the user with the go_to_lg variable until they give a valid input from the above list
             go_to_lg = input("Lestrade has asked you to go to Lauriston Gardens. How will you respond: 'now' or 'later'?")
         if go_to_lg.lower() == "now":
+            #if the user's input to go_to_lg is "now", the user's friendship with Lestrade increases; the word global is used to show that the varibale being identified was defined outside of the function
             global friendship_lestrade
             friendship_lestrade += 1
+            #the following prints and the function x() is called to continue the story
             print(f"Because of your compliance, your friendship level with Lestrade has increased. Your friendship level is now {friendship_lestrade}.")
             x()
             print("YOU: Not in a police car. I'll be right behind you.")
@@ -223,7 +259,9 @@ if play.lower() == "yes" or play.lower() == "y":
             print("YOU: Something cold is fine. John, make yourself at home -- have a cuppa! Don't wait up!")
             x()
         elif go_to_lg.lower() == "later":
+            #if the user's input to go_to_lg is "later", the user's friendship with lestrade is decreased
             friendship_lestrade -= 1
+            #the following prints and the function x() is called to continue the story
             print(f"Because of your rudeness, your friendship level with Lestrade has decreased. Your friendship level is now {friendship_lestrade}.")
             x()
             print("YOU (trying to hide your excitement): I'll get there when I get there.")
@@ -240,9 +278,10 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("YOU: Something cold is fine. John, make yourself at home -- have a cuppa! Don't wait up!")
             x()
+
     def scene_1():
         """"Scene one of the game begins when this function is calles"""
-        #the story begins. lines of text are printed one by one for the player to read. the player presses enter after every line to get to the next line of text. in between lines of code, the player can type 'clues' to view their list of clues'
+        #the story begins. lines of text are printed one by one for the player to read followed by calling the x() function to start the story
         print("Introduction:")
         print("Your name is Sherlock Holmes, an infamous detective who lives in present-day London. You have recently moved into a flat at 221B Baker street with Dr. John Watson. Upon meeting Watson, you discovered that he was an army doctor. Currently, you are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper. For some reason, you had a feeling that the suicides weren't actually. This is where the case begins.")
         x()
@@ -263,28 +302,37 @@ if play.lower() == "yes" or play.lower() == "y":
         print("Lestrade wouldn't be here unless something was different this time.")
         x()
         different = input("What do you want to say to Lestrade? Enter: 'sassy remark' or 'question'.")
+        #the above variable takes the user's input on the how they want to respond to Lestrade
         while different.lower() not in ['sassy remark', 'question']:
+            #this while loop will continue to ask the user for a valid input to different if their input is not in the above list
             different = input("What do you want to say to Lestrade? Enter: 'sassy remark' or 'question'.")
         if different.lower() == "sassy remark":
+            #if the user's input to different is "sassy remark", the user's friendship with lestrade will decrease; the world global is used to show that the variable being identified was defined outside of the function
             global friendship_lestrade
             friendship_lestrade -= 1
+            #the following will print
             print(f"Your friendship with Lestrade has decreased because of your sassy remark. Your friendship level is now {friendship_lestrade}.")
             x()
             print("YOU: You wouldn't have come to get me if there wasn't anything new and the police couldn't figure it out.")
             x()
+            #the function different_lestrade() is called and will continue the story
             different_lestrade()
         elif different.lower() == "question":
+            #if the user's input to different is "question", the user's friendship with Lestrade will increase
             friendship_lestrade += 1
+            #the following will print
             print(f"Your friendship level with Lestrade has increased because of your genuine question. Your friendship level is now {friendship_lestrade}.")
             x()
             print("What's different about this one?")
             x()
+            #the function different_lestrade() called and will continue the story
             different_lestrade()
+
     #this calls the previously defined scene_1() function
     scene_1()
 
     def assistant_john():
-        """This function continues the story when the player picks John as their assistant to take to the crime scene."""
+        """This function continues the story when the player picks John as their assistant to take to the crime scene in Scene 2."""
         #the story is continued by printing lines of text followed by the previously defined function x()
         print("YOU (to John): You're a doctor.")
         x()
@@ -320,8 +368,11 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: Who cares about decent? The game, Mrs. Hudson, is on!")
         x()
+        #the first quote is created based on the quote class. the quote itself is listed first in the parentheses followed by the person who said the quote
         quote_1 = quote("The game, Mrs. Hudson, is on!", "Sherlock Holmes")
+        #this is a method from the quote class that introduces/describes the first quote found to the player
         quote_1.introduce()
+        #this quote is added to the list of quotes
         quotes.append("The game, Mrs. Hudson, is on! ~Sherlock Holmes")
         x()
         print("You and John run out of the flat. You hail a cab and climb inside, telling the cabbie to head to Lauriston Gardens.")
@@ -333,34 +384,39 @@ if play.lower() == "yes" or play.lower() == "y":
         possible_assistants = ["john watson", "mrs. hudson"]
         #this is the list of acceptable inputs when the player is prompted with the previously defined assistant_decision
         while assistant_decision.lower() not in possible_assistants:
-            #this is a while loop that continues to ask for the player's input until their input for assistant_decision matches one of the options in possible_assistants
+            #this is a while loop that continues to ask for the player's input until their input for assistant_decision is in possible_assistants
             assistant_decision = input("You put on your black trench coat and blue scarf and dash out the door. You stop outside the door after exiting the flat. You should get going, but you need an assistant. Who should you ask to be you assistant, Mrs. Hudson or John Watson? Enter 'john watson' or 'mrs. hudson'.")
         if assistant_decision.lower() == "mrs. hudson":
-            #the following will happen if the user's input to assistant_decision is 'mrs. hudson'
+            #the following will print if the user's input to assistant_decision is 'mrs. hudson'
             print("Mrs. Hudson probably wouldn't do well at a crime scene.")
             take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'y' or 'n'.")
             #this asks for the user's input on if they are sure they want to take Mrs. Hudson to the crime scene
             while take_hudson.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop continues to ask for the user's input to take_hudson while it is not in the above list
                 take_hudson = input("Are you sure you want to bring Mrs. Hudson? Enter: 'y' or 'n'.")
             if take_hudson.lower() == "y" or take_hudson.lower() == "yes":
-                #if the user's input for take_hudson is 'yes' or 'y', a string will be printed telling the player they have failed
+                #if the user's input for take_hudson is 'yes' or 'y', the following will be printed
                 print("You take Mrs. Hudson to the crime scene. She wasn't that helpful. The case was never solved. You have failed.")
                 restart = input("Would you like to go back to the last scene and restart? y or n?")
                 #this takes the user input on whether or not they want to restart the game after they have failed by bringing Mrs. Hudson to the crime scene
                 if restart.lower() == "y" or restart.lower() == "yes":
-                    #if the user's input to restart is 'yes' or 'y', scene_2() is called and the game will continue from the beginning of the function scene_2()
+                    #if the user's input to restart is 'yes' or 'y', scene_2() is called and the game will continue
                     scene_2()
                 elif restart.lower() == "n" or restart.lower() == "no":
+                    #if the user's input to restart is "no" or "n", the following will print and the game will end (using sys.exit())
                     print("Goodbye.")
                     sys.exit()
             elif take_hudson.lower() == "no" or take_hudson.lower() == "n":
+                #if the user's input to take_hudson is "n" or "no", the following will be printed and the assistant_john() function will be called
                 print("You should ask John.")
                 assistant_john()
         elif assistant_decision.lower() == "john watson":
+            #if the user's input to assistant_decision is "john watson", the following will print and the assistant_john() function will be called
             print("Good choice. You head back inside to speak to John.")
             x()
             assistant_john()
 
+    #the previously defined scene_2() function will be called
     scene_2()
 
     def job_question_response():
