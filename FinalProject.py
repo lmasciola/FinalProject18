@@ -165,6 +165,55 @@ def murderer():
             print("...")
             x()
             print("...Moriarty.")
+        elif murderer_1.lower() == "mrs. hudson":
+            print("Are you serious? That little old lady? A murderer? No. You're done. Goodbye.")
+            x()
+            sys.exit()
+        elif murderer_1.lower() == "lestrade":
+            print("Okay. No. It would be an interesting cover, but no.")
+            x()
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #this variable will take the user's input to the above question
+            while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop will continue to ask the user for a valid input to restart if their input is not in the above list
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "yes" or "y", the scene_5() function is called
+                scene_5()
+            elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "no" or "n", the following will be print and the game will end (using sys.exit())
+                print("Goodbye.")
+                sys.exit()
+        elif murderer_1.lower() == "harry":
+            print("You haven't even met Harry...She was mentioned briefly...What are you doing? You've failed.")
+            x()
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #this variable will take the user's input to the above question
+            while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop will continue to ask the user for a valid input to restart if their input is not in the above list
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "yes" or "y", the scene_5() function is called
+                scene_5()
+            elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "no" or "n", the following will be print and the game will end (using sys.exit())
+                print("Goodbye.")
+                sys.exit()
+        elif murderer_1.lower() == "anderson" or murderer_1.lower() == "sally":
+            print("We get it. You hate them. But no way are they smart enough to have committed a murder.")
+            x()
+            restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #this variable will take the user's input to the above question
+            while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop will continue to ask the user for a valid input to restart if their input is not in the above list
+                restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "yes" or "y", the scene_5() function is called
+                scene_5()
+            elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "no" or "n", the following will be print and the game will end (using sys.exit())
+                print("Goodbye.")
+                sys.exit()
     elif murderer.lower() in ["no", "n"]:
         #if the user's input to murderer is "no" or "n", the function x() is called
         x()
@@ -285,6 +334,7 @@ if play.lower() == "yes" or play.lower() == "y":
         print("Introduction:")
         print("Your name is Sherlock Holmes, an infamous detective who lives in present-day London. You have recently moved into a flat at 221B Baker street with Dr. John Watson. Upon meeting Watson, you discovered that he was an army doctor. Currently, you are sitting in your flat when Mrs. Hudson, your landlady, asks you your opinion about the recent suicides that have been reported in the paper. For some reason, you had a feeling that the suicides weren't actually. This is where the case begins.")
         x()
+        possible_murderers.append("mrs. hudson")
         print("MRS. HUDSON: What about these suicides, then, Sherlock? Thought that would be right up your street. Three of them, exactly the same. That's a bit funny, isn't it?")
         x()
         print("You suddenly get a feeling. You glance out the window and see a blue flashing light coming from a police car parked below your flat.")
@@ -298,6 +348,7 @@ if play.lower() == "yes" or play.lower() == "y":
         print("YOU: Where?")
         x()
         print("LESTRADE: Brixton. Lauriston Gardens.")
+        possible_murderers.append("lestrade")
         x()
         print("Lestrade wouldn't be here unless something was different this time.")
         x()
@@ -486,6 +537,7 @@ if play.lower() == "yes" or play.lower() == "y":
                 x()
                 print("JOHN: The engraving.")
                 x()
+                possible_murderers.append("harry")
                 print("The engraving reads 'To Harry From Clara xxx'")
                 x()
                 print("YOU: Harry Watson - clearly a family member who’s given you his old phone. Not your father - this is a young man’s gadget. Could be a cousin, but you’re a war hero who can’t find a place to live - unlikely you’ve got an extended family, certainly not one you’re close to. So - brother it is.")
@@ -620,6 +672,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("SALLY: Hello, freak.")
         x()
+        possible_murderers.append("sally")
         print("Sally works at the police department. She is also a person you dislike.")
         x()
         print("YOU: I'm here to see Detective Inspector Lestrade.")
@@ -677,12 +730,18 @@ if play.lower() == "yes" or play.lower() == "y":
             quotes.append("You were thinking. It's annoying. ~Sherlock Holmes")
             x()
             examining = True
+            #the variable examining is set equal to True
             options_examine = ["hand", "coat", "jewelry", "leg"]
+            #the above list is the list of possible options for the examine variable
             while examining:
+                #this while loop will ask the reader the examine variable while the number of elements in the options_examine list is greater than 0
                 examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)} ")
+                #the above variable prompts the user to  search for clues at the crime scene
                 while examine.lower() not in options_examine:
+                    #this while loop will prompt the user with the examine variable while their input isn't in the options_examine list
                     examine = input(f"You move closer to the body to examine it. Where do you want to examine? {', '.join(options_examine)} ")
                 if examine.lower() == "hand":
+                    #if the user's input is "hand", the following will print
                     print("With her left hand, Wilson had scratched a word into the wooden floorboards. The word is 'Rache.'")
                     x()
                     print("'Rache' means 'revenge' in German.")
@@ -694,14 +753,22 @@ if play.lower() == "yes" or play.lower() == "y":
                     print("Rachel.")
                     x()
                     clue_4 = clue("Jennifer scratched the word 'RACHE' into the floorboards. You believe she didn't finish and was instead writing 'Rachel'", "Lauriston Gardens")
+                    #the above clue was made from the clues class; the description of the clue is listed first in the parentheses and the location where the clue was discovered is listed second
                     clue_4.introduce()
+                    #the clue is described/introduced to the user by using the introduce method of the clue class
                     clues.append("Jennifer Wilson scratched 'Rachel' into the floorboards")
+                    #the clue is then added to the clues list
                     x()
                     print("You look at Wilson's fingernails. All were painted pink to match her coat and heels. The only nails chip were those she used to carve into the wooden floor.")
                     clue_5 = clue("Jennifer Wilson does not work with her hands", "Lauriston Gardens")
+                    #the above clue was made from the clues class; the description of the clue is listed first in the parentheses and the location where the clue was discovered is listed second
                     clue_5.introduce()
+                    #the clue is described/introduced to the user by using the introduce method of the clue class
+                    clues.append("Jennifer Wilson did not work with her hands")
+                    #the clue is then added to the clues list
                     x()
                 elif examine.lower() == "coat":
+                    #the following will print and the x() function will be called to continue the story
                     print("You run your gloved hand over the woman's coat. The coat was wet.")
                     x()
                     print("You pull a fold-away umbrella out of her coat pocket. It was dry.")
@@ -709,38 +776,56 @@ if play.lower() == "yes" or play.lower() == "y":
                     print("You run your hand under the collar of the woman's coat. The collar is wet.")
                     x()
                     clue_6 = clue("Jennifer Wilson was outside in a windy rain storm", "Lauriston Gardens")
+                    #the above clue was made from the clue class; the description of the clue is listed first in the parentheses and the location where the clue was discovered is listed second
                     clue_6.introduce()
+                    #the clue is described/introduced to the user by using the introduce method of the clue class
                     clues.append("Jennifer Wilson was outside in a rain storm prior to her death.")
+                    #the clue is added to the clues list
                     x()
                 elif examine.lower() == "jewelry":
                     print("You examine the woman's left hand. The woman was wearing her wedding ring. Unlike all of her other jewelry, her wedding ring was dirty.")
                     x()
                     clue_7 = clue("Jennifer Wilson was unhappily married", "Lauriston Gardens")
+                    #the above clue was made from the clue class; the description of the clue is listed first in the parentheses and the location where the clue was discovered is listed second
                     clue_7.introduce()
+                    #the clue is described/introduced to the user by using the introduce method of the clue class
                     clues.append("Jennifer Wilson was unhappily married.")
+                    #the clue is added to the clue list
                     x()
                     print("You take off Wilson's wedding ring. While the outside is dirty, the inside is clean like her other jewelry, meaning the ring is regularly removed. You believe that Wilson was probably an adulter whose lovers did not know she was married.")
                     x()
                     clue_8 = clue ("Jennifer Wilson was an adulterer", "Lauriston Gardens")
+                    #the above clue was made from the clue class; the description of the clue is listed first in the parentheses and the location where the clue was discovered is listed second
                     clue_8.introduce()
+                    #the clue is described/introduced to the user by using the introduce method of the clue class
                     clues.append("Jennifer Wilson was an adulterer.")
+                    #the clue is added to the clue list
                     x()
                 elif examine.lower() == "leg":
+                    #the following is printed and the x() function is called to continue the story
                     print("You look at the back of Wilson's right leg. It is covered in small splashes, probably from a suitcase she was carrying.")
                     x()
                     clue_9 = clue("Wilson had a suitcase with her", "Lauriston Gardens")
+                    #the above clue was made from the clue class; the description of the clue is listed first in the parentheses and the location where the clue was discovered is listed second
                     clue_9.introduce()
+                    #the clus is introduced/described to the user by using the introduce method of the clue class
                     clues.append("Wilson had a suitcase with her.")
+                    #the clue is added to the clue list
                     x()
                 options_examine.remove(examine)
+                #the above removes the user's input from the options_examine list
                 if len(options_examine) == 0:
+                    #if the length of the options_examine list is 0, examining is False and the while loop will end
                     examining = False
             possible_murderers.append("husband")
             possible_murderers.append("lover")
+            #"lover" and "husband" are added to the possible_murderers list
         elif friendship_lestrade < 2:
+            #if your friendship with Lestrade is less, than 2, the following will print and the game will end (using sys.exit())
             print("Your friendship level with Lestrade was too low. He was upset with you and did not let you into the crime scene. You lose!")
             sys.exit()
 
+    #the previously defined scene_4() is called
     scene_4()
 
     def tell_lestrade():
@@ -861,6 +946,7 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("Anderson walks in. He works with the police department.")
         x()
+        possible_murderers.append("anderson")
         print("ANDERSON: She's German. Rache is German for revenge. She could be trying to tell us something.")
         x()
         print("YOU: Yes, thank you for your input.")
