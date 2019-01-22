@@ -648,13 +648,20 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("A woman in a bright pink coat, and pink shoes, lies dead, sprawled face down on the floor. The room remained silent, but you couldn't think.")
             x()
+            #the second clue is made from the clue class; the clue description is listed first in the parentheses followed by the location where it was found
             clue_2 = clue("Jennifer Wilson's outfit is completely pink", "Lauriston Gardens")
+            #the introduce method of the clue class is used to introduce/describe the clue to the user
             clue_2.introduce()
+            #the clue is added to the clues list
             clues.append("Jennifer Wilson's outfit is completely pink")
             x()
+            #the third clue is made from the clue class; the clue description is listed first in the parentheses followed by the location where it was found
             clue_3 = clue("Jennifer Wilson's outfit shows she is a professional person", "Lauriston Gardens")
+            #the introduce method of the clue class is used to introduce/describe the clue to the user
             clue_3.introduce()
+            #the clue is added to the clues list
             clues.append("Jennifer Wilson's outfit shows she is a professional person")
+            #the following is printed and the x() function is called, so the story can continue
             x()
             print("YOU: Shut up!")
             x()
@@ -662,8 +669,11 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("YOU: You were thinking. It's annoying.")
             x()
+            #the third quote is made from the quote class; the quote is listed first in the parentheses followed by the person who said the quote
             quote_3 = quote("You were thinking. It's annoying.", "Sherlock Holmes")
+            #the introduce method of the quotes class is used to introduce/describe the quote to the user
             quote_3.introduce()
+            #the quote is added to the quotes list
             quotes.append("You were thinking. It's annoying. ~Sherlock Holmes")
             x()
             examining = True
