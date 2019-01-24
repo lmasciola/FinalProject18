@@ -34,3 +34,4 @@ tell_lestrade() Flowchart: https://drive.google.com/file/d/1zWiZz1aaYOZ4r6byPuAZ
 x() function map: https://drive.google.com/file/d/1IR-smX_sPoR-G8VnJ7_iK6GsHGqnMtsK/view?usp=sharing
 
 ## Citations
+https://docs.google.com/document/d/1C5euAf5d5YFnqBwaYXfnBYueE_oe5iSFth_LpVb0ZPQ/edit?usp=sharing
