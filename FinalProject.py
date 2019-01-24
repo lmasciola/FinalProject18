@@ -166,10 +166,12 @@ def murderer():
             x()
             print("...Moriarty.")
         elif murderer_1.lower() == "mrs. hudson":
+            #the following prints
             print("Are you serious? That little old lady? A murderer? No. You're done. Goodbye.")
             x()
             sys.exit()
         elif murderer_1.lower() == "lestrade":
+            #the follwoing prints
             print("Okay. No. It would be an interesting cover, but no.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
@@ -185,6 +187,7 @@ def murderer():
                 print("Goodbye.")
                 sys.exit()
         elif murderer_1.lower() == "harry":
+            #the following prints
             print("You haven't even met Harry...She was mentioned briefly...What are you doing? You've failed.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
@@ -200,6 +203,7 @@ def murderer():
                 print("Goodbye.")
                 sys.exit()
         elif murderer_1.lower() == "anderson" or murderer_1.lower() == "sally":
+            #the following prints
             print("We get it. You hate them. But no way are they smart enough to have committed a murder.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
@@ -243,7 +247,7 @@ play = input("Would you like to play 'Sherlock: A Study in Pink'? Enter: 'y' or 
 #this take the user input and asks the player if they want to play the game
 if play.lower() == "yes" or play.lower() == "y":
 #if the player inputs "yes" or "y", the game will start and the following will print
-    print(f"""INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. This game is based on the episode of BBC Sherlock, 'A Study in Pink,' and uses dialogue from the show. Whenever you see the '<' symbol:
+    print(f"""INTRUCTIONS: Welcome to the game. In this game, you play as the infamous detective Sherlock Holmes. This game is based on the episode of BBC Sherlock, 'A Study in Pink,' and uses dialogue from the show. Your friendship with Lestrade determines how the game progresses. Whenever you see the '<' symbol:
         -press enter to continue
         -type 'clues' to view your current list of clues.
         -type 'quotes' to view the quotes you have unlocked""")
@@ -673,6 +677,8 @@ if play.lower() == "yes" or play.lower() == "y":
         print("SALLY: Hello, freak.")
         x()
         possible_murderers.append("sally")
+        #the element "sally" is added to the possible_murderers list
+        #the following prints
         print("Sally works at the police department. She is also a person you dislike.")
         x()
         print("YOU: I'm here to see Detective Inspector Lestrade.")
@@ -830,6 +836,7 @@ if play.lower() == "yes" or play.lower() == "y":
 
     def tell_lestrade():
         """This function continues scene 5 when called"""
+        #the following prints and the x() function is called to continue the story
         print("You have come up with many conclusions about Jennifer Wilson:")
         x()
         print("YOU: Victim is in her late forties. Professional person going by her clothes - I’d guess something in the media, going by the frankly alarming shade of pink. She’s travelled from Cardiff today, intending to stay for one night - that’s obvious from the size of her suitcase -- ")
@@ -852,9 +859,13 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         print("YOU: Dear God, what's it like in your funny little brains? It must be so boring. Her coat!")
         x()
+        #the fourth quote is made based off of the quote class
         quote_4 = quote("Dear God, what's it like in your funny little brains? It must be so boring.", "Sherlock Holmes")
+        #the fourth quote is introduced to the user based on the introduce method of the quotes class
         quote_4.introduce()
+        #the quote is added to the quotes list
         quotes.append("Dear God, what's it like in your funny little brains? It must be so boring. ~Sherlock Holmes")
+        #the following prints and x() is called to continue the story
         x()
         print("YOU: Her coat. It’s slightly damp - she’s been in heavy rain within the last few hours. No rain anywhere in London in that time. Under her coat collar is damp too. She turned it up against the wind! She’s got an umbrella in her left pocket but it’s unused and dry. Not just wind, strong wind - too strong to use her umbrella. We know from her suitcase that she’s staying over night so she must have a come a decent distance. But she can’t have travelled more than two or three hours, cos her coat hasn’t dried. So where has there been heavy rain and strong wind within the radius of that travel time? I did a quick search on my phone, and the answer is Cardiff.")
         x()
@@ -939,14 +950,18 @@ if play.lower() == "yes" or play.lower() == "y":
 
     def scene_5():
         """"Scene 5 of the game begins when this function is called"""
+        #the function murderer() is called
         murderer()
+        #the following prints and the x() is called to continue the story
         print("LESTRADE: Got anything?")
         x()
         print("YOU: Not much.")
         x()
         print("Anderson walks in. He works with the police department.")
         x()
+        #"anderson" is added to the possible_murderers list
         possible_murderers.append("anderson")
+        #the following prints and the x() is called to continue the story
         print("ANDERSON: She's German. Rache is German for revenge. She could be trying to tell us something.")
         x()
         print("YOU: Yes, thank you for your input.")
@@ -960,9 +975,12 @@ if play.lower() == "yes" or play.lower() == "y":
         print("LESTRADE: What about the message though?")
         x()
         message = input("Do you want to ignore Lestrade or tell him what you have discovered? Enter: 'ignore' or 'discuss'.")
+        #the above variable take the user's input
         while message.lower() not in ["ignore", "discuss"]:
+            #this while loop will ask the user the message variable while the user's input is not in the above list
             message = input("Do you want to ignore Lestrade or tell him what you have discovered? Enter: 'ignore' or 'discuss'.")
         if message.lower() == "ignore":
+            #if the input to message is "ignore", the user's friendship with lestrade decreased by 1 and the following prints and x() is called to continue the story
             global friendship_lestrade
             friendship_lestrade -= 1
             print(f"Your rudeness towards Lestrade was offputting. Your friendship level with Lestrade has decreased and is now {friendship_lestrade}.")
@@ -1019,13 +1037,17 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("LESTRADE: Sherlock, I need anything you've got.")
             x()
+            #the function tell_lestrade() is called
             tell_lestrade()
         elif message.lower() == "discuss":
+            #if the user's input to message is "discuss" the following happens
             if friendship_lestrade == 5:
+                #if the the user's friendship level with Lestrade is 5, the following prints and the tell_lestrade() function is called
                 print(f"Because of your compliance, your friendship level with Lestrade remained the same and is still {friendship_lestrade}.")
                 x()
                 tell_lestrade()
             elif friendship_lestrade < 5:
+                #if the user's friendship level with Lestrade is less than 5, the user's friendship with Lestrade increases by 1 and tell_lestrade() is called
                 friendship_lestrade += 1
                 print(f"Because of your compliance, your friendship level with Lestrade has increased. You current friendship level with Lestrade is {friendship_lestrade}.")
                 x()
@@ -1035,6 +1057,7 @@ if play.lower() == "yes" or play.lower() == "y":
 
     def found_suitcase():
         """This function continues scene 6 when called"""
+        #the following prints and the x() function is called to continue the story
         print("You look over to John and see him looking down at the suitcase on the coffee table. John looks puzzled.")
         x()
         print("JOHN: That’s ... that’s the pink lady’s case ... Jennifer Wilson’s case...")
@@ -1132,6 +1155,7 @@ if play.lower() == "yes" or play.lower() == "y":
 
     def scene_6():
         """"Scene 6 of the game begins when this function is called"""
+        #the following prints and the x() function is called to continue the story
         print("A few hours later, you are back in your flat laying on the couch on your back. You had just texted John to come to the flat as soon as possible. After you had left Lauriston Gardens, you searched the area for the pink suitcase belonging to Jennifer Wilson. You had found it, and it was sitting open on your coffee table. Inside the case you expected to find her phone, but did not. The murderer probably had her phone still.")
         x()
         print("Eventually John walks through the door.")
@@ -1187,10 +1211,14 @@ if play.lower() == "yes" or play.lower() == "y":
         print("YOU: ... it's no use. There's no other way. We'll just have to risk it.")
         x()
         phone = input("Do you want to take the phone from John or have John text for you? Enter: 'me' or 'john'")
+        #the above variable takes the user's input
         phone_possibilities = ["me", "john"]
+        #the above list contains the acceptable inputs for the variable phone
         while phone.lower() not in phone_possibilities:
+            #this while loop will ask the user the phone variable while their input is not in the phone_possibilities list
             phone = input("Do you want to take the phone from John or have John text for you? Enter: 'me' or 'john'")
         if phone.lower() == "me":
+            #if the user's input to phone is "me", the following prints and the x() function is called to continue the story
             print("YOU: There's a number on a post-it on my desk. Hand it to me.")
             x()
             print("John walks over to the desk and retrieves the post-it for you.")
@@ -1201,8 +1229,10 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("John bring you the number. You send a text that says, 'What happened at Lauriston Gardens? I must have blacked out. 22 Northumberland Street. Please come.'")
             x()
+            #the found_suitcase() function is called
             found_suitcase()
         elif phone.lower() == "john":
+            #the following prints and the x() function is called to continue the story is the user's input to phone is "john"
             print("YOU: There’s a phone number on my desk - I want you to send a text.")
             x()
             print("JOHN: You brought me here to send a text.")
@@ -1263,12 +1293,14 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("JOHN: Yes.")
             x()
+            #the found_suitcase() function is called
             found_suitcase()
 
     scene_6()
 
     def scene_7():
         """"Scene 7 of the game begins when this function is called"""
+        #the following prints and the x() functions is called to continue the story
         print("You and John both leave the flat and walk to a shabby-looking Italian restaurant on Northumberland Street. You stared across the street at 22 Northumberland Street, the address you texted to Jennifer Wilson’s phone. Later in the night, you saw a taxi stopped outside of 22 Northumberland. You ran through the streets of London with John following closely behind after the taxi. When you caught up to the taxi, you were able to see that the man riding in the taxi had recently arrived from the U.S.; he had an alibi and couldn’t have been the killer.")
         x()
         print("However, when you arrive back at your flat, you are greeted with a startled Mrs. Hudson. She informs you that Lestrade, Anderson, Sally and other members of the police department are upstairs in your flat. Lestrade found out that you had found Jennifer Wilson’s suitcase. Because he couldn’t break into your flat, he disguised entering your flat as a drugs bust.")
@@ -1287,17 +1319,23 @@ if play.lower() == "yes" or play.lower() == "y":
         x()
         global friendship_lestrade
         if friendship_lestrade < 4:
+            #if the user's friendship level with lestrade is less than 4, the following prints
             print("Because your friendship level was to low, Lestrade eventually came up with a way to have you arrested. The case was never solved. You have failed.")
             x()
             restart = input("Would you like to go back to the crime scene and restart? Enter: 'y' or 'n'.")
+            #the above variable takes the user's input
             while restart.lower() not in ["yes", "y", "no", "n"]:
+                #this while loop continues to ask the user the restart variable while their input is not in the above list
                 restart = input("Would you like to restart? Enter: 'y' or 'n'.")
             if restart.lower() in ["yes", "y"]:
+                #if the user's input to restart is "y" or "yes", scene_1() function is called
                 scene_1()
             elif restart.lower() in ["no", "n"]:
+                #if the user's input to restart is "n" or "no", the game ends (using sys.exit())
                 print("Goodbye.")
                 sys.exit()
         elif friendship_lestrade >= 4:
+            #if the user's frienship level with lestrade is greater than or equal to 4, the following prints and the x() function is called to continue the story
             print("YOU: I'm clean")
             x()
             print("LESTRADE: Is your flat? All of it?")
@@ -1316,10 +1354,14 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("YOU: I'm not a psychopath, Anderson - I'm a high-functioning sociopath. Do your research!")
             x()
+            #the fifth quote is made from the quotes class
             quote_5 = quote("I'm not a psychopath, Anderson - I'm a high-functioning sociopath.", "Sherlock")
+            #the fifth quote is introduced to the user using the introduce method from the quotes class
             quote_5.introduce()
+            #the fifth quote is added to the quotes list
             quotes.append("I'm not a psychopath, Anderson - I'm a high-functioning sociopath. ~Sherlock")
             x()
+            #the following prints and the x() function is called to continue the story
             print("YOU (to Lestrade) You need to bring Rachel in, you need to question her. I need to question her -")
             x()
             print("LESTRADE: She’s dead.")
@@ -1362,9 +1404,13 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("YOU: What do you mean, how? Rachel, don’t you see? Rachel!! Oh, look at you lot, you’re all so vacant! What’s it like, not being me, it must be so relaxing. Rachel is not a name.")
             x()
+            #the sixth quote is made from the quote class
             quote_6 = quote("What's it like, not being me, it must be so relaxing.", "Sherlock")
+            #the sixth quote is introduced to the user by using the introduce method of the quotes class
             quote_6.introduce()
+            #the sixth quote is added to the quotes list
             quotes.append("What's it like, not being me, it must be so relaxing. ~Sherlock")
+            #the following prints and the x() function is called to continue the story
             x()
             print("JOHN: Then what is it?")
             x()
@@ -1384,9 +1430,13 @@ if play.lower() == "yes" or play.lower() == "y":
             x()
             print("YOU: Don’t talk out loud, Anderson, you lower the IQ of the whole street. We can do more than read her emails - it’s a smartphone, it’s got GPS. And if you lose it, you can locate it online.")
             x()
+            #the seventh quote is made from the quotes class
             quote_7 = quote("Don't talk out loud, Anderson, you lower the IQ of the whole street.", "Sherlock")
+            #the seventh quote is introduced to the user from the introduce method of the quote class
             quote_7.introduce()
+            #the seventh quote is added to the quotes list
             quotes.append("Don't talk out loud, Anderson, you lower the IQ of the whole street. ~Sherlock")
+            #the following prints and the x() function is called to continue the story
             x()
             print("YOU: She’s leading us right to the man who killed her.")
             x()
@@ -1431,9 +1481,13 @@ if play.lower() == "yes" or play.lower() == "y":
             print("YOU (thinking to yourself): Who hunts in the middle of a crowd?")
             x()
             print("You are about to be asked if you know who the murderer is. This is your last chance to figure out who the murderer is. If you respond 'n', the game will end.")
+            #"taxi driver" is added to the possible_murderers list
             possible_murderers.append("taxi driver")
+            #the functions murderer() is called
             murderer()
             print("The end.")
+    #the function scene_7() is called
     scene_7()
 else:
+    #the following prints and the game ends
     print("Goodbye.")
