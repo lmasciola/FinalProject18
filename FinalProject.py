@@ -1486,6 +1486,7 @@ if play.lower() == "yes" or play.lower() == "y":
             #the functions murderer() is called
             murderer()
             print("The end.")
+
     #the function scene_7() is called
     scene_7()
 else:
