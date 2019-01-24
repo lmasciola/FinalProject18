@@ -28,11 +28,13 @@ def x():
         #if the user input to x is "clues", the list of clues will print
         print(f"The clues you have discovered so far are:")
         print(*clues, sep = "\n")
+        print("")
         return
     elif x.lower() == "quotes":
         #if the user input to x is "quotes", the list of quotes will print
         print(f"The quotes you have discovered so far are:")
         print(*quotes, sep = "\n")
+        print("")
         return
 
 def murderer():
