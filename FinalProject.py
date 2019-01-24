@@ -25,16 +25,14 @@ def x():
         #if the user input to x is "", the next line of text will print
         return x
     elif x.lower() == "clues":
-        #if the user input to x is "clues", the list of clues will print and then the user will be asked for their input to x again
+        #if the user input to x is "clues", the list of clues will print
         print(f"The clues you have discovered so far are:")
         print(*clues, sep = "\n")
-        x = input("<")
         return
     elif x.lower() == "quotes":
-        #if the user input to x is "quotes", the list of quotes will print and then the user will be asked for their input to x again
+        #if the user input to x is "quotes", the list of quotes will print
         print(f"The quotes you have discovered so far are:")
         print(*quotes, sep = "\n")
-        x = input("<")
         return
 
 def murderer():
