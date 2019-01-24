@@ -36,7 +36,6 @@ def x():
         print(*quotes, sep = "\n")
         print("")
         return
-
 def murderer():
     """This function will ask the player if they think they know who the murderer is"""
     murderer = input("Based on the information you have, do you think you know who the murderer is? If you chose wrong, the game will end. Enter: 'y' or 'n'.")
